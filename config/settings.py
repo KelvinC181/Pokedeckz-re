@@ -32,7 +32,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1",
+ALLOWED_HOSTS = ["localhost",
+                "127.0.0.1",
                 ".herokuapp.com"]
 
 
@@ -45,6 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
+    'card',
     'deckbuilder',
 ]
 
@@ -94,7 +98,8 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "127.0.0.1",
+    "http://127.0.0.1",
+    "http://localhost",
     "https://*.herokuapp.com"
 ]
 
