@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p> Hello World !!</p>
+{% for card in card_list %}
+<div>
+    <img src="{{ card.card_image.url }}">
+</div>
+{%endfor%}
 {% endblock %}
