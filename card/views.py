@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Card
 
 # Create your views here.
 
-def Hompage_view(request):
-    return HttpResponse('Hello World')
+class CardLibrary(generic.ListView):
+    queryset = Card.objects.all()
+    template_name = "card/card_library.html"
