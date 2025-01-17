@@ -2,8 +2,8 @@
 
 {% block content %}
 {% for card in card_list %}
-<div>
+<a href="{% url 'card_detail' card.card_id %}">
     <img src="{{ card.card_image.url }}">
-</div>
+</a>
 {%endfor%}
 {% endblock %}

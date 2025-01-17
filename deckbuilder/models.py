@@ -9,7 +9,7 @@ class Deck(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="saved_decks"
     )
-    deck_list = models.TextField()
+    deck_content = models.TextField()
     published = models.IntegerField(choices=STATUS, default=0)
     additional_info = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)

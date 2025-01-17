@@ -2,12 +2,19 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Deck,Comment
-from .forms import DeckForm, CommentForm
+from .models import Deck
+from .forms import DeckForm
 from card.models import Card
 
 
 # Create your views here.
+class DeckList(generic.ListView):
+    """
+    displays all public decks
+    """
+    queryset = Deck.objects.filter(published=1)
+    template_name = "deckbuilder/deck_list.html"
+    paginate_by = 12
 
 def deckbuilder(request):
     """

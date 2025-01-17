@@ -2,5 +2,5 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('deckbuilder', views.Hompage_view, name='deckbuilder'),
+    path('deckbuilder', views.DeckList.as_view(), name='deckbuilder'),
 ]
