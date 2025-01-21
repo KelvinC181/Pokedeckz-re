@@ -6,10 +6,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: var(--secondary-font);
 }
 
-/*CSS Variables*/
+/* CSS Variables */
 :root {
     --primary-font: "Atma", serif;
     --secondary-font: "Roboto", serif;
@@ -20,8 +19,28 @@
     --feature-color-2: #ffde00; /* green */
 }
 
-/*general styles*/
+/* general styles */
 main {
     flex-grow: 1;
     background: url("../images/background-image.webp") center/cover no-repeat;
+}
+
+/* navbar */
+nav {
+    background-color: var(--primary-color);
+    font-family: var(--primary-font);
+    font-weight: bolder;
+}
+
+.navbar-brand {
+    color: var(--feature-color-2);
+    text-shadow: 2px 1px var(--feature-color-1);
+}
+
+.nav-link {
+    color: var(--base-color);
+}
+
+.nav-link.active {
+    color: #8c8c8c !important;
 }
