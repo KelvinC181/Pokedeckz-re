@@ -23,8 +23,5 @@
 /*general styles*/
 main {
     flex-grow: 1;
-    background-image: url("../images/background-image.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url("../images/background-image.webp") center/cover no-repeat;
 }
