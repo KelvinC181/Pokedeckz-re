@@ -41,6 +41,16 @@ nav {
     color: var(--base-color);
 }
 
-.nav-link.active {
+nav .active {
     color: #8c8c8c !important;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    background-color: var(--base-color);
+}
+
+footer p {
+    margin-bottom: 0px;
 }

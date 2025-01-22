@@ -36,7 +36,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Card Library</a>
+                <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}">Card Library</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Decks</a>
@@ -62,7 +62,15 @@
     <!-- Footer -->
     <footer class="mt-auto">
         <div class="container-fluid">
-            <p>Copyright Kelvin Chan 2025</p>
+          <div class="row">
+            <div class="col-12">
+              <p><i class="fa-regular fa-copyright"></i> Copyright Kelvin Chan 2025</p>
+            </div>
+            <div class="col-12">
+              <p>Github Repository:</p>
+              <a src="https://github.com/KelvinC181/PokeDeckz" target="blank"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
         </div>
     </footer>
 
@@ -70,6 +78,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <!-- Font Awesome Script -->
+    <script src="https://kit.fontawesome.com/67187a987e.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
