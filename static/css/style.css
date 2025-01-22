@@ -54,3 +54,24 @@ footer {
 footer p {
     margin-bottom: 0px;
 }
+
+/* card library */
+.library {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.library::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.library {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.library-img {
+    width: 100%;
+}
