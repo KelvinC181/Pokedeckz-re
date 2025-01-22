@@ -6,12 +6,24 @@
         <h1>Build Your Deck</h1>
         <form method="post">
             {% csrf_token %}
-            <label for="{{ deck_form.deck_name.id_for_label }}">Deck Name:</label>
-            {{ deck_form.deck_name }}
-            <div class="hidden">
-            {{ deck_form.deck_content }}
+            <div>
+                <label for="{{ deck_form.deck_name.id_for_label }}">Deck Name:</label>
+                {{ deck_form.deck_name }}
             </div>
-    
+            <div class="hidden">
+                {{ deck_form.deck_content }}
+            </div>
+            <div class="deck-area"> 
+                <p>Some Text</p>
+            </div>
+            <div>
+                <label for="{{ deck_form.additional_info.id_for_label }}">Additional Information:</label><br>
+                {{ deck_form.additional_info }}
+            </div>
+            <div>
+                <label for="{{ deck_form.published.id_for_label }}">Published:</label>
+                {{ deck_form.published }}
+            </div>
             <button type="submit" class="btn btn-primary">Save Deck</button>
         </form>
     </div>
