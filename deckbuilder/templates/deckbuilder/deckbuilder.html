@@ -2,12 +2,20 @@
 
 {% block content %}
 <div class="container">
-    <h1>Build Your Deck</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ deck_form.as_p }}
-        <button type="submit" class="btn btn-primary">Save Deck</button>
-    </form>
+    <div class="deckbuilder">
+        <h1>Build Your Deck</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="{{ deck_form.deck_name.id_for_label }}">Deck Name:</label>
+            {{ deck_form.deck_name }}
+            <div class="hidden">
+            {{ deck_form.deck_content }}
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Save Deck</button>
+        </form>
+    </div>
+
     <div class="card-library row">
         {% for card in cards %}
         <div class="col-12 col-md-4 col-lg-2 my-2">

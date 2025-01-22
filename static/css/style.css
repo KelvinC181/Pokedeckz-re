@@ -25,6 +25,10 @@ main {
     background: url("../images/background-image.webp") center/cover no-repeat;
 }
 
+.hidden {
+    display: none;
+}
+    
 /* navbar */
 nav {
     background-color: var(--primary-color);
@@ -74,4 +78,9 @@ footer p {
 
 .library-img {
     width: 100%;
+}
+
+/* deckbuilder */
+.deckbuilder{
+    background-color: var(--base-color);
 }
