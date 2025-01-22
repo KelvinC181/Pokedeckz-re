@@ -16,10 +16,14 @@ class DeckList(generic.ListView):
     template_name = "deckbuilder/deck_list.html"
     paginate_by = 12
 
+
+
+
+
 def deckbuilder(request):
     """
-    builds a deck as :model:`deckbuilder.Deck`.
-    displays card to choose from :model:`card.Cards`
+    Builds a deck as :model:`deckbuilder.Deck`.
+    Displays cards to choose from :model:`card.Card`.
 
     **Context**
     ``deck_form``
@@ -33,7 +37,7 @@ def deckbuilder(request):
     :template:`deckbuilder/deckbuilder.html`
     """
     cards = Card.objects.all()
-    deck_form = DeckForm
+    deck_form = DeckForm()
 
     if request.method == "POST":
         deck_form = DeckForm(data=request.POST)
@@ -45,17 +49,15 @@ def deckbuilder(request):
                 request, messages.SUCCESS,
                 'Deck saved successfully'
             )
-        else :
+        else:
             messages.add_message(
                 request, messages.ERROR,
                 'Error while saving deck.'
             )
 
-    deck_form = DeckForm()
-
     return render(
         request,
-        "card/deckbuilder.html",
+        "deckbuilder/deckbuilder.html",
         {
             "cards": cards,
             "deck_form": deck_form
