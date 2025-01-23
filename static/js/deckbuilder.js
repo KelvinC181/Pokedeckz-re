@@ -38,7 +38,7 @@ const addCard = (cardImg) => {
     console.log(sendContent);
 }
 
-// Add an onclick event listener
+// Add onclick event listeners
 document.addEventListener("DOMContentLoaded", function() {
     for (let cardImg of cardImgs) {
         cardImg.addEventListener("click", () => addCard(cardImg));
