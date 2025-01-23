@@ -1,4 +1,5 @@
 /**
+ * ADD card to deck
  * 1. append card to deck content field
  *  1.1 onlick: get card-id
  *  1.2 get content of deck_content
@@ -15,27 +16,31 @@
 const cardImgs = document.querySelectorAll('.library-img');
 let textarea = document.querySelector('textarea[name="deck_content"]');
 
-// Add an onclick event listener
-cardImgs.forEach(cardImg => {
-    cardImg.onclick = function() {
-        // Get the card ID
-        let cardId = cardImg.getAttribute('card-id');
-        
-        // Get the current value of the textarea
-        let deckContent = textarea.value;
-        if (deckContent) {
-            deckArray = deckContent.split(',');
-        } else {
-            deckArray = [];
-        }
-        
-        // append card ID to text area
-        console.log(cardId);
-        deckArray.push(cardId);
-        textarea.value = deckArray.join(',');
-
-        let sendContent = textarea.value
-
-        console.log(sendContent);
+const addCard = (cardImg) => {
+    // Get the card ID
+    let cardId = cardImg.getAttribute('card-id');
+    
+    // Get the current value of the textarea
+    let deckContent = textarea.value;
+    if (deckContent) {
+        deckArray = deckContent.split(',');
+    } else {
+        deckArray = [];
     }
-});
+    
+    // append card ID to text area
+    console.log(cardId);
+    deckArray.push(cardId);
+    textarea.value = deckArray.join(',');
+
+    let sendContent = textarea.value
+
+    console.log(sendContent);
+}
+
+// Add an onclick event listener
+document.addEventListener("DOMContentLoaded", function() {
+    for (let cardImg of cardImgs) {
+        cardImg.addEventListener("click", () => addCard(cardImg));
+    }
+})
