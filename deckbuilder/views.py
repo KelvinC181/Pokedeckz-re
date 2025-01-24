@@ -91,8 +91,7 @@ def deck_detail(request, deck_id):
     """
     deck = get_object_or_404(Deck, id=deck_id)
     card_ids = deck.deck_content.split(',')
-    deck_cards = Card.objects.filter(card_id__in=card_ids)
-
+    deck_cards = deck_cards = [Card.objects.get(card_id=card_id) for card_id in card_ids]
     return render(
         request,
         "deckbuilder/deck_detail.html",
