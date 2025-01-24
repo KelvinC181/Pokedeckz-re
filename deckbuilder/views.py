@@ -16,8 +16,15 @@ class DeckList(generic.ListView):
     template_name = "deckbuilder/deck_list.html"
     paginate_by = 12
 
+class MyDecks(generic.ListView):
+    """
+    displays all of user's decks
+    """
+    template_name = "deckbuilder/my_decks.html"
+    paginate_by = 12
 
-
+    def get_queryset(self):
+        return Deck.objects.filter(author=self.request.user)
 
 
 def deckbuilder(request):
