@@ -84,6 +84,7 @@ def deckbuilder(request):
                 request, messages.SUCCESS,
                 'Deck saved successfully'
             )
+            return HttpResponseRedirect(reverse('deck_detail', args=[saved_deck.id]))
         else:
             messages.add_message(
                 request, messages.ERROR,
