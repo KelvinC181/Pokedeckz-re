@@ -75,11 +75,7 @@ const addCard = (cardImg) => {
         alert('deck can only contain 20 cards')
     }
     
-    
-
-    console.log(cardImgSrc);
     addCardImg (cardId, cardImgSrc)
-
 }
 
 
@@ -107,12 +103,13 @@ const deleteCard = (deckImg) => {
 
     //get index of id in array
     let idPosition = deckArray.indexOf(cardId)
+
     //splice id from array
-    console.log(idPosition)
     if (idPosition >-1) {
         deckArray.splice(idPosition,1)
     }
     textarea.value = deckArray.join(',')
 
-    console.log(textarea.value)
+    //2. delete img from deck area dynamically
+    deckImg.parentElement.remove();
 }
