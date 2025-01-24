@@ -89,7 +89,27 @@ const addCard = (cardImg) => {
  *  1.1 onlick: get card-id
  *  1.2 get content of deck_content
  *  1.3 delete card id from array
+ *      1.3.1 get index of id in array
+ *      1.3.2 splice id from array
  * 
  * 2. delete img from deck area dynamically
  *  2.1 delete parent
  */
+
+//1. delete card-id from text-area
+const deleteCard = (deckImg) => {
+    //get card-id
+    let cardId = deckImg.getAttribute('card-id');
+
+    //get content of deck_content
+    let deckContent = textarea.value;
+    let deckArray = deckContent.split(',');
+
+    //get index of id in array
+    let idPosition = deckArray.indexOf(cardId)
+    //splice id from array
+    deckArray.splice(idPosition,1)
+    textarea.value = deckArray.join(',')
+
+    console.log(textarea.value)
+}
