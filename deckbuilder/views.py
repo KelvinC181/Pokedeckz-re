@@ -29,7 +29,7 @@ class MyDecks(generic.ListView):
 
 def deck_detail(request, id):
     """
-    Display an individual :model:`deckbuilder.Deck`.
+    Display an individual :model:`deckbuilder.Deck`
 
     **Context**
 
@@ -42,11 +42,16 @@ def deck_detail(request, id):
     """
     queryset = Deck.objects.all()
     deck = get_object_or_404(queryset, id=id)
+    card_ids = deck.deck_content.split(',')
+    deck_cards = Card.objects.filter(card_id__in=card_ids)
 
     return render(
         request,
         "deckbuilder/deck_detail.html",
-        {"deck": deck},
+        {
+            "deck": deck,
+            "deck_cards": deck_cards
+        },
     )
 
 
