@@ -14,9 +14,9 @@ const deckarea = document.querySelector('.deck-area')
  * 1. append card to deck content field
  *  1.1 onlick: get card-id
  *  1.2 get content of deck_content
- *  1.2 check if deck array is longer then 20
- *      1.2.1 if not append id
- *      1.2.2 if yes return error message
+ *  1.3 check if deck array is longer then 20
+ *      1.3.1 if not append id
+ *      1.3.2 if yes return error message
  * 
  * 2. add img to deck area dynamically
  *  2.1 onclick: get card img src
@@ -31,11 +31,12 @@ const deckarea = document.querySelector('.deck-area')
 const addCardImg = (cardId, cardImgSrc) => {
     //create card div
     let cardDiv = document.createElement('div')
-    cardDiv.classList.add('col-12', 'col-md-3', 'col-lg-1', 'my-2')
+    cardDiv.classList.add('col-12', 'col-md-3', 'col-lg-2', 'my-2')
 
 
     //create img 
     let deckImg = document.createElement('img')
+    deckImg.classList.add('deck-img')
     deckImg.setAttribute('src', cardImgSrc)
     deckImg.setAttribute('card-id', cardId)
 
@@ -44,6 +45,9 @@ const addCardImg = (cardId, cardImgSrc) => {
 
     //append div to deck area
     deckarea.appendChild(cardDiv);
+
+    //add event listener for deletecard fuction
+    deckImg.addEventListener("click", () => deleteCard(deckImg));
 }
 
 
@@ -62,9 +66,16 @@ const addCard = (cardImg) => {
         deckArray = []; //removes empty value from deck content
     }
     
-    // append card ID to text area
-    deckArray.push(cardId);
-    textarea.value = deckArray.join(',');
+    // check if deck array is longer than 20
+    if (deckArray.length<20) {
+        // append card ID to text area
+        deckArray.push(cardId);
+        textarea.value = deckArray.join(',');
+    } else {
+        alert('deck can only contain 20 cards')
+    }
+    
+    
 
     console.log(cardImgSrc);
     addCardImg (cardId, cardImgSrc)
@@ -72,4 +83,13 @@ const addCard = (cardImg) => {
 }
 
 
-
+/**
+ * DELETE card from deck
+ * 1. delete card-id from text-area
+ *  1.1 onlick: get card-id
+ *  1.2 get content of deck_content
+ *  1.3 delete card id from array
+ * 
+ * 2. delete img from deck area dynamically
+ *  2.1 delete parent
+ */

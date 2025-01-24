@@ -86,3 +86,7 @@ footer p {
     border: 5px solid var(--secondary-color);
     border-radius: 10px;
 }
+
+.deck-img {
+    width: 100%;
+}
