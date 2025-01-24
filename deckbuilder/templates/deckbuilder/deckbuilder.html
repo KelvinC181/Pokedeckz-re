@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container">
     <div class="deckbuilder my-3 p-3">
-        <h1>Build Your Deck</h1>
+        <h1>{% if edit_mode %}Edit{% else %}Build{% endif %} Your Deck</h1>
         <form method="post">
             {% csrf_token %}
             <div>
@@ -15,6 +15,7 @@
                 {{ deck_form.deck_content }}
             </div>
             <div class="deck-area row"> 
+                <!-- Cards will be appended here -->
             </div>
             <div>
                 <label for="{{ deck_form.additional_info.id_for_label }}">Additional Information:</label><br>
@@ -24,7 +25,7 @@
                 <label for="{{ deck_form.published.id_for_label }}">Published:</label>
                 {{ deck_form.published }}
             </div>
-            <button type="submit" class="btn btn-primary mt-2">Save Deck</button>
+            <button type="submit" class="btn btn-primary mt-2">{% if edit_mode %}Update{% else %}Save{% endif %} Deck</button>
         </form>
     </div>
 
@@ -33,7 +34,7 @@
         <div class="col-12 col-md-4 col-lg-2 my-2">
             <img class="library-img" src="{{ card.card_image.url }}" card-id="{{card.card_id}}">
         </div>
-        {%endfor%}
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

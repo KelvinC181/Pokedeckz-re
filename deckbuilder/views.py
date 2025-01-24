@@ -27,33 +27,6 @@ class MyDecks(generic.ListView):
         return Deck.objects.filter(author=self.request.user)
     
 
-def deck_detail(request, id):
-    """
-    Display an individual :model:`deckbuilder.Deck`
-
-    **Context**
-
-    ``deck``
-        An instance of :model:`deckbuilder.Deck`.
-
-    **Template:**
-
-    :template:`deckbuilder/deck_detail.html`
-    """
-    queryset = Deck.objects.all()
-    deck = get_object_or_404(queryset, id=id)
-    card_ids = deck.deck_content.split(',')
-    deck_cards = Card.objects.filter(card_id__in=card_ids)
-
-    return render(
-        request,
-        "deckbuilder/deck_detail.html",
-        {
-            "deck": deck,
-            "deck_cards": deck_cards
-        },
-    )
-
 
 def deckbuilder(request):
     """
@@ -97,5 +70,81 @@ def deckbuilder(request):
         {
             "cards": cards,
             "deck_form": deck_form
+        },
+    )
+
+
+def deck_detail(request, deck_id):
+    """
+    Display an individual :model:`deckbuilder.Deck`
+
+    **Context**
+
+    ``deck``
+        An instance of :model:`deckbuilder.Deck`.
+    ``deck_cards``
+        A queryset of :model:`card.Card` instances.
+
+    **Template:**
+
+    :template:`deckbuilder/deck_detail.html`
+    """
+    deck = get_object_or_404(Deck, id=deck_id)
+    card_ids = deck.deck_content.split(',')
+    deck_cards = Card.objects.filter(card_id__in=card_ids)
+
+    return render(
+        request,
+        "deckbuilder/deck_detail.html",
+        {
+            "deck": deck,
+            "deck_cards": deck_cards
+        },
+    )
+
+
+def edit_deck(request, deck_id):
+    """
+    Edits an instance of :model:`deckbuilder.Deck`
+
+    **Context**
+
+    ``deck``
+        The targeted instance of :model:`deckbuilder.Deck`.
+
+    ``deck_form``
+        An instance of :form:`deckbuilder.DeckForm`
+    """
+
+    deck = get_object_or_404(Deck, id=deck_id)
+    cards = Card.objects.all()
+
+    if request.method == "POST":
+        deck_form = DeckForm(data=request.POST, instance=deck)
+
+        if deck_form.is_valid() and deck.author == request.user:
+            saved_deck = deck_form.save(commit=False)
+            saved_deck.author = request.user
+            saved_deck.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Deck updated successfully'
+            )
+            return HttpResponseRedirect(reverse('deck_detail', args=[saved_deck.id]))
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                'Error while updating deck.'
+            )
+
+    deck_form = DeckForm(instance=deck)
+
+    return render(
+        request,
+        "deckbuilder/deckbuilder.html",
+        {
+            "cards": cards,
+            "deck_form": deck_form,
+            "edit_mode": True,
         },
     )

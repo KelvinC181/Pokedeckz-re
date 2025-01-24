@@ -9,5 +9,9 @@
         </div>
         {% endfor %}
     </div>
+    {% if deck.author == request.user %}
+    <a href="{% url 'edit_deck' deck.id %}" class="btn btn-primary mt-2">Edit Deck</a>
+    {% endif %}
 </div>
+
 {% endblock %}
