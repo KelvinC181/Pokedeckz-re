@@ -16,6 +16,13 @@
             </div>
             <div class="deck-area row"> 
                 <!-- Cards will be appended here -->
+                {% if edit_mode %}
+                    {% for card in deck_cards %}
+                    <div class="col-12 col-md-4 col-lg-2 my-2">
+                        <img class="deck-img" src="{{ card.card_image.url }}" alt="{{ card.name }}">
+                    </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div>
                 <label for="{{ deck_form.additional_info.id_for_label }}">Additional Information:</label><br>

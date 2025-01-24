@@ -1,7 +1,3 @@
-const cardImgs = document.querySelectorAll('.library-img');
-const textarea = document.querySelector('textarea[name="deck_content"]');
-const deckarea = document.querySelector('.deck-area')
-
 // Add onclick event listeners
 document.addEventListener("DOMContentLoaded", function() {
     for (let cardImg of cardImgs) {
@@ -9,7 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 })
 
-
+const cardImgs = document.querySelectorAll('.library-img');
+const textarea = document.querySelector('textarea[name="deck_content"]');
+const deckarea = document.querySelector('.deck-area')
 
 /**
  * ADD card to deck

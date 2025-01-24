@@ -91,7 +91,7 @@ def deck_detail(request, deck_id):
     """
     deck = get_object_or_404(Deck, id=deck_id)
     card_ids = deck.deck_content.split(',')
-    deck_cards = deck_cards = [Card.objects.get(card_id=card_id) for card_id in card_ids]
+    deck_cards = [Card.objects.get(card_id=card_id) for card_id in card_ids]
     return render(
         request,
         "deckbuilder/deck_detail.html",
@@ -117,6 +117,8 @@ def edit_deck(request, deck_id):
 
     deck = get_object_or_404(Deck, id=deck_id)
     cards = Card.objects.all()
+    card_ids = deck.deck_content.split(',')
+    deck_cards = [Card.objects.get(card_id=card_id) for card_id in card_ids]
 
     if request.method == "POST":
         deck_form = DeckForm(data=request.POST, instance=deck)
@@ -144,6 +146,7 @@ def edit_deck(request, deck_id):
         {
             "cards": cards,
             "deck_form": deck_form,
+            "deck_cards": deck_cards,
             "edit_mode": True,
         },
     )
