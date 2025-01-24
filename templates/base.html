@@ -2,6 +2,7 @@
 
 {% url 'home' as home_url %}
 {% url 'deckbuilder' as deckbuilder_url %}
+{% url 'my_decks' as my_decks_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -42,7 +43,7 @@
                 <a class="nav-link " href="#">Decks</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#">My Decks</a>
+                <a class="nav-link {% if request.path == my_decks_url %}active{% endif %}" href="{% url 'my_decks' %}">My Decks</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {% if request.path == deckbuilder_url %}active{% endif %}" href="{% url 'deckbuilder' %}">Build Your Deck</a>
@@ -66,22 +67,6 @@
           </div>
         </div>
     </nav>
-
-    
-    <div class="container">
-      <div class="row">
-          <div class="col-md-8 offset-md-2">
-              {% for message in messages %}
-              <div class="alert {{ message.tags }} alert-dismissible
-              fade show" id="msg" role="alert">
-              {{ message | safe }}
-              <button type="button" class="btn-close"
-                  data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-              {% endfor %}
-          </div>
-      </div>
-    </div>
 
     <!-- Main Content -->
     <main>

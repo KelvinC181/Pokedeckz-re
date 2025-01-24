@@ -25,6 +25,29 @@ class MyDecks(generic.ListView):
 
     def get_queryset(self):
         return Deck.objects.filter(author=self.request.user)
+    
+
+def deck_detail(request, id):
+    """
+    Display an individual :model:`deckbuilder.Deck`.
+
+    **Context**
+
+    ``deck``
+        An instance of :model:`deckbuilder.Deck`.
+
+    **Template:**
+
+    :template:`deckbuilder/deck_detail.html`
+    """
+    queryset = Deck.objects.all()
+    deck = get_object_or_404(queryset, id=id)
+
+    return render(
+        request,
+        "deckbuilder/deck_detail.html",
+        {"deck": deck},
+    )
 
 
 def deckbuilder(request):
