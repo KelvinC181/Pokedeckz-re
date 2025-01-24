@@ -2,6 +2,7 @@
 
 {% url 'home' as home_url %}
 {% url 'deckbuilder' as deckbuilder_url %}
+{% url 'deck_list' as deck_list_url %}
 {% url 'my_decks' as my_decks_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
@@ -40,7 +41,7 @@
                 <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}">Card Library</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#">Decks</a>
+                <a class="nav-link {% if request.path == deck_list_url %}active{% endif %}" href="{% url 'deck_list' %}">Decks</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {% if request.path == my_decks_url %}active{% endif %}" href="{% url 'my_decks' %}">My Decks</a>
