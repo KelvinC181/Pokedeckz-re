@@ -61,7 +61,7 @@ def deckbuilder(request):
         else:
             messages.add_message(
                 request, messages.ERROR,
-                'Error while saving deck.'
+                'Error while saving deck'
             )
 
     return render(
@@ -135,7 +135,7 @@ def edit_deck(request, deck_id):
         else:
             messages.add_message(
                 request, messages.ERROR,
-                'Error while updating deck.'
+                'Error while updating deck'
             )
 
     deck_form = DeckForm(instance=deck)
@@ -150,3 +150,28 @@ def edit_deck(request, deck_id):
             "edit_mode": True,
         },
     )
+
+def delete_deck(request, deck_id):
+    """
+    Deletes an instance of :model:`deckbuilder.Deck`
+
+    **Context**
+
+    ``deck``
+        The targeted instance of :model:`deckbuilder.Deck`.
+    """
+
+    deck = get_object_or_404(Deck, id=deck_id)
+
+    if deck.author == request.user:
+        deck.delete()
+        messages.add_message(
+                request, messages.SUCCESS,
+                'Deck deleted successfully'
+            )
+        return HttpResponseRedirect(reverse('my_decks'))
+    else:
+        messages.add_message(
+                request, messages.SUCCESS,
+                'Error while deleting deck'
+            )

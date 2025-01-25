@@ -33,6 +33,9 @@
                 {{ deck_form.published }}
             </div>
             <button type="submit" class="btn btn-primary mt-2">{% if edit_mode %}Update{% else %}Save{% endif %} Deck</button>
+            {% if edit_mode %}
+            <button class="btn btn-delete">Delete</button>
+            {% endif %}
         </form>
     </div>
 
