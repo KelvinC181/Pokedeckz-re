@@ -37,9 +37,11 @@ const deleteConfirm = document.getElementById('delete-confirm')
  * 1. append card to deck content field
  *  1.1 onlick: get card-id
  *  1.2 get content of deck_content
- *  1.3 check if deck array is longer then 20
- *      1.3.1 if not append id
- *      1.3.2 if yes return error message
+ *  1.3 check if deck array already contains 2 of the card id
+ *      1.3.1 
+ *  1.4 check if deck array is longer then 20
+ *      1.4.1 if not append id
+ *      1.4.2 if yes return error message
  * 
  * 2. add img to deck area dynamically
  *  2.1 onclick: get card img src
@@ -89,16 +91,25 @@ const addCard = (cardImg) => {
         deckArray = []; //removes empty value from deck content
     }
     
-    // check if deck array is longer than 20
-    if (deckArray.length<20) {
-        // append card ID to text area
-        deckArray.push(cardId);
-        textarea.value = deckArray.join(',');
+
+    // Check if the deck array already contains 2 of the card ID
+    const cardCount = deckArray.filter(id => id === cardId).length;
+    if (cardCount >= 2) {
+        alert('Cannot add more than 2 of the same card.');
+        return;
     } else {
-        alert('deck can only contain 20 cards')
+        // check if deck array is longer than 20
+        if (deckArray.length<20) {
+            // append card ID to text area
+            deckArray.push(cardId);
+            textarea.value = deckArray.join(',');
+            addCardImg (cardId, cardImgSrc)
+        } else {
+            alert('deck can only contain 20 cards')
+            return;
+        }
     }
     
-    addCardImg (cardId, cardImgSrc)
 }
 
 
