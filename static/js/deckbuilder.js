@@ -1,22 +1,22 @@
 // Add event listeners
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
     for (let cardImg of cardImgs) {
-        cardImg.addEventListener("click", () => addCard(cardImg));
+        cardImg.addEventListener('click', () => addCard(cardImg));
     }
     
     for (let deckAreaImg of deckAreaImgs) {
-        deckAreaImg.addEventListener("click", () => deleteCard(deckAreaImg));
+        deckAreaImg.addEventListener('click', () => deleteCard(deckAreaImg));
     }
 
     //show delete deck modal on delete button click
-    deleteDeckButton.addEventListener("click", function() {
-        deleteDeckModal.classList.remove("hidden");
+    deleteDeckButton.addEventListener('click', function() {
+        deleteDeckModal.classList.remove('hidden');
     });
 
     //hide delete deck modal on close button click
     for (let closeButton of closeButtons) {
-        closeButton.addEventListener("click", function() {
-            deleteDeckModal.classList.add("hidden");
+        closeButton.addEventListener('click', function() {
+            deleteDeckModal.classList.add('hidden');
         });
     }
 })
@@ -24,10 +24,11 @@ document.addEventListener("DOMContentLoaded", function() {
 const cardImgs = document.querySelectorAll('.library-img');
 const textarea = document.querySelector('textarea[name="deck_content"]');
 const deckarea = document.querySelector('.deck-area')
-const deleteDeckButton = document.querySelector(".delete-deck");
+const deleteDeckButton = document.querySelector('.delete-deck');
 const closeButtons = document.querySelectorAll('.close-button');
 const deckAreaImgs = document.querySelectorAll('.deck-img')
-const deleteDeckModal = document.getElementById('deleteModal');
+const deleteDeckModal = document.getElementById('delete-modal');
+const deleteConfirm = document.getElementById('delete-confirm')
 
 /**
  * ADD card to deck
@@ -67,7 +68,7 @@ const addCardImg = (cardId, cardImgSrc) => {
     deckarea.appendChild(cardDiv);
 
     //add event listener for deletecard fuction
-    deckImg.addEventListener("click", () => deleteCard(deckImg));
+    deckImg.addEventListener('click', () => deleteCard(deckImg));
 }
 
 

@@ -23,6 +23,7 @@
 main {
     flex-grow: 1;
     background: url("../images/background-image.webp") center/cover no-repeat;
+    font-family: var(--secondary-font);
 }
 
 .hidden {
