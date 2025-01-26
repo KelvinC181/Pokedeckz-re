@@ -1,13 +1,24 @@
-// Add onclick event listeners
+// Add event listeners
 document.addEventListener("DOMContentLoaded", function() {
     for (let cardImg of cardImgs) {
         cardImg.addEventListener("click", () => addCard(cardImg));
     }
+    
+    for (let deckAreaImg of deckAreaImgs) {
+        deckAreaImg.addEventListener("click", () => deleteCard(deckAreaImg));
+    }
+
+    //show delete deck modal on delete button click
+    deleteDeckButton.addEventListener("click", function() {
+        deleteDeckModal.show();
+    });
 })
 
 const cardImgs = document.querySelectorAll('.library-img');
 const textarea = document.querySelector('textarea[name="deck_content"]');
 const deckarea = document.querySelector('.deck-area')
+const deleteDeckButton = document.getElementsByClassName("delete-deck");
+const deckAreaImgs = document.querySelectorAll('.deck-img')
 
 /**
  * ADD card to deck
@@ -110,6 +121,27 @@ const deleteCard = (deckImg) => {
     }
     textarea.value = deckArray.join(',')
 
+    console.log(textarea.value)
+
     //2. delete img from deck area dynamically
     deckImg.parentElement.remove();
 }
+
+
+/**
+* Initializes deletion functionality for the provided delete buttons.
+* 
+* For each button in the `deleteButtons` collection:
+* - Retrieves the associated comment's ID upon click.
+* - Updates the `deleteConfirm` link's href to point to the 
+* deletion endpoint for the specific comment.
+* - Displays a confirmation modal (`deleteModal`) to prompt 
+* the user for confirmation before deletion.
+*/
+for (let button of deleteButtons) {
+    button.addEventListener("click", (e) => {
+      let commentId = e.target.getAttribute("comment_id");
+      deleteConfirm.href = `delete_comment/${commentId}`;
+      deleteModal.show();
+    });
+  }
