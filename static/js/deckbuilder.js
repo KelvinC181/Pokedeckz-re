@@ -10,15 +10,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //show delete deck modal on delete button click
     deleteDeckButton.addEventListener("click", function() {
-        deleteDeckModal.show();
+        deleteDeckModal.classList.remove("hidden");
     });
+
+    //hide delete deck modal on close button click
+    for (let closeButton of closeButtons) {
+        closeButton.addEventListener("click", function() {
+            deleteDeckModal.classList.add("hidden");
+        });
+    }
 })
 
 const cardImgs = document.querySelectorAll('.library-img');
 const textarea = document.querySelector('textarea[name="deck_content"]');
 const deckarea = document.querySelector('.deck-area')
-const deleteDeckButton = document.getElementsByClassName("delete-deck");
+const deleteDeckButton = document.querySelector(".delete-deck");
+const closeButtons = document.querySelectorAll('.close-button');
 const deckAreaImgs = document.querySelectorAll('.deck-img')
+const deleteDeckModal = document.getElementById('deleteModal');
 
 /**
  * ADD card to deck

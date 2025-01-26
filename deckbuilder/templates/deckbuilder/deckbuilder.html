@@ -35,7 +35,7 @@
             <button type="submit" class="btn btn-primary mt-2">{% if edit_mode %}Update{% else %}Save{% endif %} Deck</button>
         </form>
         {% if edit_mode %}
-        <button type="submit" class="btn btn-danger mt-2">Delete Deck</button>
+        <button type="submit" class="btn btn-danger mt-2 delete-deck">Delete Deck</button>
         {% endif %}
     </div>
 
@@ -49,29 +49,24 @@
 </div>
 
 <!-- Delete confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"
-          id="deleteModalLabel">Delete deck?</h5>
-        <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
+<div id="deleteModal" class="hidden">
+      <div>
+        <h5>Delete Deck</h5>
+        <button type="button" class="btn-close close-button" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div>
         Are you sure you want to delete your deck?
         This action cannot be undone.
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
+      <div>
+        <button type="button" class="btn btn-secondary close-button">Close</button>
         <a id="deleteConfirm" href="{% url 'delete_deck' deck.id %}" class="btn
-          btn-danger delete-deck">Delete</a>
+          btn-danger">Delete</a>
       </div>
     </div>
   </div>
 </div>
+
 {% endblock %}
 
 {% block js %}
