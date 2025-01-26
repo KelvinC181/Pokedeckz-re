@@ -145,6 +145,7 @@ def edit_deck(request, deck_id):
         "deckbuilder/deckbuilder.html",
         {
             "cards": cards,
+            "deck": deck,
             "deck_form": deck_form,
             "deck_cards": deck_cards,
             "edit_mode": True,
