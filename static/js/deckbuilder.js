@@ -9,9 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     //show delete deck modal on delete button click
+    if (deleteDeckButton){
     deleteDeckButton.addEventListener('click', function() {
         deleteDeckModal.classList.remove('hidden');
     });
+    }
 
     //hide delete deck modal on close button click
     for (let closeButton of closeButtons) {
