@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for card in deck_cards %}
+        <div class="col-12 col-md-4 col-lg-2 my-2">
+            <img class="library-img" src="{{ card.card_image.url }}" alt="{{ card.name }}">
+        </div>
+        {% endfor %}
+    </div>
+    {% if deck.author == request.user %}
+    <a href="{% url 'edit_deck' deck.id %}" class="btn btn-primary mt-2">Edit Deck</a>
+    {% endif %}
+</div>
+
+{% endblock %}
