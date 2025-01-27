@@ -48,23 +48,26 @@
     </div>
 </div>
 
+
 <!-- Delete confirmation modal -->
-<div id="deleteModal" class="hidden">
-      <div>
-        <h5>Delete Deck</h5>
-        <button type="button" class="btn-close close-button" aria-label="Close"></button>
-      </div>
-      <div>
-        Are you sure you want to delete your deck?
-        This action cannot be undone.
-      </div>
-      <div>
-        <button type="button" class="btn btn-secondary close-button">Close</button>
-        <a id="deleteConfirm" href="{% url 'delete_deck' deck.id %}" class="btn
-          btn-danger">Delete</a>
-      </div>
+<div id="delete-modal" class="hidden">
+    <div>
+        
+        <div>
+            <h5>Delete Deck</h5>
+            <button type="button" class="btn-close close-button" aria-label="Close"></button>
+        </div>
+        <div>
+            Are you sure you want to delete your deck?
+            This action cannot be undone.
+        </div>
+        <div>
+            <button type="button" class="btn btn-secondary close-button">Close</button>
+            <a id="delete-confirm" {% if edit_mode %} href="{% url 'delete_deck' deck.id %}" {% endif %} class="btn
+            btn-danger">Delete</a>
+        </div>
+
     </div>
-  </div>
 </div>
 
 {% endblock %}

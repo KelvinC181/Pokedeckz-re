@@ -1,22 +1,24 @@
 // Add event listeners
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
     for (let cardImg of cardImgs) {
-        cardImg.addEventListener("click", () => addCard(cardImg));
+        cardImg.addEventListener('click', () => addCard(cardImg));
     }
     
     for (let deckAreaImg of deckAreaImgs) {
-        deckAreaImg.addEventListener("click", () => deleteCard(deckAreaImg));
+        deckAreaImg.addEventListener('click', () => deleteCard(deckAreaImg));
     }
 
     //show delete deck modal on delete button click
-    deleteDeckButton.addEventListener("click", function() {
-        deleteDeckModal.classList.remove("hidden");
+    if (deleteDeckButton){
+    deleteDeckButton.addEventListener('click', function() {
+        deleteDeckModal.classList.remove('hidden');
     });
+    }
 
     //hide delete deck modal on close button click
     for (let closeButton of closeButtons) {
-        closeButton.addEventListener("click", function() {
-            deleteDeckModal.classList.add("hidden");
+        closeButton.addEventListener('click', function() {
+            deleteDeckModal.classList.add('hidden');
         });
     }
 })
@@ -24,19 +26,22 @@ document.addEventListener("DOMContentLoaded", function() {
 const cardImgs = document.querySelectorAll('.library-img');
 const textarea = document.querySelector('textarea[name="deck_content"]');
 const deckarea = document.querySelector('.deck-area')
-const deleteDeckButton = document.querySelector(".delete-deck");
+const deleteDeckButton = document.querySelector('.delete-deck');
 const closeButtons = document.querySelectorAll('.close-button');
 const deckAreaImgs = document.querySelectorAll('.deck-img')
-const deleteDeckModal = document.getElementById('deleteModal');
+const deleteDeckModal = document.getElementById('delete-modal');
+const deleteConfirm = document.getElementById('delete-confirm')
 
 /**
  * ADD card to deck
  * 1. append card to deck content field
  *  1.1 onlick: get card-id
  *  1.2 get content of deck_content
- *  1.3 check if deck array is longer then 20
- *      1.3.1 if not append id
- *      1.3.2 if yes return error message
+ *  1.3 check if deck array already contains 2 of the card id
+ *      1.3.1 
+ *  1.4 check if deck array is longer then 20
+ *      1.4.1 if not append id
+ *      1.4.2 if yes return error message
  * 
  * 2. add img to deck area dynamically
  *  2.1 onclick: get card img src
@@ -67,7 +72,7 @@ const addCardImg = (cardId, cardImgSrc) => {
     deckarea.appendChild(cardDiv);
 
     //add event listener for deletecard fuction
-    deckImg.addEventListener("click", () => deleteCard(deckImg));
+    deckImg.addEventListener('click', () => deleteCard(deckImg));
 }
 
 
@@ -86,16 +91,25 @@ const addCard = (cardImg) => {
         deckArray = []; //removes empty value from deck content
     }
     
-    // check if deck array is longer than 20
-    if (deckArray.length<20) {
-        // append card ID to text area
-        deckArray.push(cardId);
-        textarea.value = deckArray.join(',');
+
+    // Check if the deck array already contains 2 of the card ID
+    const cardCount = deckArray.filter(id => id === cardId).length;
+    if (cardCount >= 2) {
+        alert('Cannot add more than 2 of the same card.');
+        return;
     } else {
-        alert('deck can only contain 20 cards')
+        // check if deck array is longer than 20
+        if (deckArray.length<20) {
+            // append card ID to text area
+            deckArray.push(cardId);
+            textarea.value = deckArray.join(',');
+            addCardImg (cardId, cardImgSrc)
+        } else {
+            alert('deck can only contain 20 cards')
+            return;
+        }
     }
     
-    addCardImg (cardId, cardImgSrc)
 }
 
 
