@@ -68,6 +68,7 @@ footer p {
 /* card library */
 .library {
     height: 100%;
+    max-height: 600px;
     overflow-y: scroll;
 }
 
@@ -103,12 +104,43 @@ footer p {
     border-radius: 10px;
 }
 
+.deckbuilder label {
+    font-weight: bold;
+}
+
 .deck-img {
     width: 100%;
 }
 
 #id_additional_info {
     width: 80%;
+}
+
+#delete-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#delete-modal-content {
+    background-color: var(--base-color);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    text-align: center;
+    padding: 1rem 0;
+    color: var(--secondary-color);
+    z-index: 1000;
+}
+
+.custom-modal-header {
+    display: flex;
 }
 
 /* deck list/my deck */
