@@ -183,3 +183,16 @@ footer p {
     border-radius: 10px;
     border: 2px solid black;
 }
+
+/* authentication */
+.login-area, .signup-area, .signout-area{
+    background-color: var(--base-color);
+    border: 5px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
+.btn-signup {
+    background-color: var(--primary-color);
+    color: var(--base-color);
+}
+
