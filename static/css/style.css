@@ -97,6 +97,10 @@ footer p {
     width: 100%;
 }
 
+#id_additional_info {
+    width: 80%;
+}
+
 /* deck list/my deck */
 .deck-list-items {
     text-align: center;
@@ -111,4 +115,29 @@ footer p {
 
 .deck-list-name {
     width: 50%;
+}
+
+/* deck detail */
+.deck-detail {
+    background-color: var(--primary-color);
+}
+
+.deck-display-header {
+    display: flex;
+    align-items: center;
+    color: var(--base-color);
+}
+
+.deck-display-header h1 {
+    width: fit-content;
+}
+
+.deck-display-header img {
+    max-height: 48px;
+}
+
+.deck-display {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: 2px solid black;
 }

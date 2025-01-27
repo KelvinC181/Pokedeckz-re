@@ -1,17 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
+<div class="container deck-detail my-1 pb-2">    
+    <div class="deck-display-header py-2">
+        <img src="{% static 'images/pokeball.png' %}" alt="pokeball" class="me-3">
+        <h1 class="h3 m-0">{{deck.deck_name}}</h1>
+        {% if deck.author == request.user %}
+        <a href="{% url 'edit_deck' deck.id %}" class="btn btn-primary ms-auto">Edit</a>
+        {% endif %}
+    </div>
+    <div class="row mx-3 py-2 deck-display">
         {% for card in deck_cards %}
         <div class="col-12 col-md-4 col-lg-2 my-2">
             <img class="library-img" src="{{ card.card_image.url }}" alt="{{ card.name }}">
         </div>
         {% endfor %}
     </div>
-    {% if deck.author == request.user %}
-    <a href="{% url 'edit_deck' deck.id %}" class="btn btn-primary mt-2">Edit Deck</a>
-    {% endif %}
+    
 </div>
 
 {% endblock %}
