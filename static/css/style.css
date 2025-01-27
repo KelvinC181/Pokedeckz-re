@@ -71,6 +71,16 @@ footer p {
     overflow-y: scroll;
 }
 
+/* card detail */
+.card-description {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--base-color);
+    text-align: center;
+    border: solid 3px var(--secondary-color);
+    border-radius: 25px;
+}
+
 /* Hide scrollbar for Chrome, Safari, and Opera */
 .library::-webkit-scrollbar {
     display: none;
