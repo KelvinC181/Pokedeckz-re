@@ -48,7 +48,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.path == my_decks_url %}active{% endif %}"
-              href="{% if user.is_authenticated %} {% url 'my_decks' %} {% else %} {% url 'account_login' %} {% endif %}">My
+              href="{% url 'my_decks' %}">My
               Decks</a>
           </li>
           <li class="nav-item">
