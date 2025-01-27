@@ -1,3 +1,143 @@
+/* google font import*/
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* overide default style added by browser */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+    --primary-font: "Atma", serif;
+    --secondary-font: "Roboto", serif;
+    --base-color: #FFFFFF; /* white */
+    --primary-color: #d32026; /* red */
+    --secondary-color: #383838; /* dark grey */
+    --feature-color-1: #3b4cca; /* blue */
+    --feature-color-2: #ffde00; /* green */
+}
+
+/* general styles */
 main {
-    background-image: url("./images/pokemon background.webp");
+    flex-grow: 1;
+    background: url("../images/background-image.webp") center/cover no-repeat;
+    font-family: var(--secondary-font);
+}
+
+a {
+color: var(--secondary-color);
+text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+    
+/* navbar */
+nav {
+    background-color: var(--primary-color);
+    font-family: var(--primary-font);
+    font-weight: bolder;
+}
+
+.navbar-brand {
+    color: var(--feature-color-2);
+    text-shadow: 2px 1px var(--feature-color-1);
+}
+
+.nav-link {
+    color: var(--base-color);
+}
+
+nav .active {
+    color: #8c8c8c !important;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    background-color: var(--base-color);
+}
+
+footer p {
+    margin-bottom: 0px;
+}
+
+/* card library */
+.library {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.library::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.library {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.library-img {
+    width: 100%;
+}
+
+/* deckbuilder */
+.deckbuilder{
+    background-color: var(--base-color);
+    border: 5px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
+.deck-img {
+    width: 100%;
+}
+
+#id_additional_info {
+    width: 80%;
+}
+
+/* deck list/my deck */
+.deck-list-items {
+    text-align: center;
+    border-radius: 25px 0 0 25px;
+    min-height: 5rem;
+    display:flex;
+    justify-content: right;
+    align-items: center;
+    color:var(--secondary-color);
+    background: linear-gradient(110deg, var(--primary-color) 9rem, var(--secondary-color) 9.25rem,var(--base-color) 9.3rem);
+}
+
+.deck-list-name {
+    width: 50%;
+}
+
+/* deck detail */
+.deck-detail {
+    background-color: var(--primary-color);
+}
+
+.deck-display-header {
+    display: flex;
+    align-items: center;
+    color: var(--base-color);
+}
+
+.deck-display-header h1 {
+    width: fit-content;
+}
+
+.deck-display-header img {
+    max-height: 48px;
+}
+
+.deck-display {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: 2px solid black;
 }
