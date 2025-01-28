@@ -68,7 +68,18 @@ footer p {
 /* card library */
 .library {
     height: 100%;
+    max-height: 600px;
     overflow-y: scroll;
+}
+
+/* card detail */
+.card-description {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--base-color);
+    text-align: center;
+    border: solid 3px var(--secondary-color);
+    border-radius: 25px;
 }
 
 /* Hide scrollbar for Chrome, Safari, and Opera */
@@ -93,12 +104,43 @@ footer p {
     border-radius: 10px;
 }
 
+.deckbuilder label {
+    font-weight: bold;
+}
+
 .deck-img {
     width: 100%;
 }
 
 #id_additional_info {
     width: 80%;
+}
+
+#delete-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#delete-modal-content {
+    background-color: var(--base-color);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    text-align: center;
+    padding: 1rem 0;
+    color: var(--secondary-color);
+    z-index: 1000;
+}
+
+.custom-modal-header {
+    display: flex;
 }
 
 /* deck list/my deck */
@@ -110,7 +152,7 @@ footer p {
     justify-content: right;
     align-items: center;
     color:var(--secondary-color);
-    background: linear-gradient(110deg, var(--primary-color) 9rem, var(--secondary-color) 9.25rem,var(--base-color) 9.3rem);
+    background: linear-gradient(110deg, var(--primary-color) 3rem, var(--secondary-color) 3.25rem,var(--base-color) 3.3rem);
 }
 
 .deck-list-name {
@@ -141,3 +183,32 @@ footer p {
     border-radius: 10px;
     border: 2px solid black;
 }
+
+/* authentication */
+.login-area, .signup-area, .signout-area {
+    background-color: var(--base-color);
+    border: 5px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
+.btn-signup {
+    background-color: var(--primary-color);
+    color: var(--base-color);
+}
+
+/* media queries */
+/* medium screens (768px and above) */
+@media screen and (min-width: 768px) {
+    /* deck list/my deck */
+    .deck-list-items {
+        background: linear-gradient(110deg, var(--primary-color) 4rem, var(--secondary-color) 4.25rem,var(--base-color) 4.3rem);
+    }
+}
+
+/* large screens (992px and above) */
+@media screen and (min-width: 992px) {
+    /* deck list/my deck */
+    .deck-list-items {
+        background: linear-gradient(110deg, var(--primary-color) 7rem, var(--secondary-color) 7.25rem,var(--base-color) 7.3rem);
+    }
+} 

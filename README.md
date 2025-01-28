@@ -124,6 +124,10 @@ The project went through manual testing on the live website.  Then I implemented
 
 ### Unit Testing
 
+unit tests were suggested by copilot, then was futher prompted to add additional tests to further test functionalities that were not included in the initial prompt.
+ 
+<img src="documentation/readme/test-prompt.jpg" alt="W3C validating card library page" width=100%>
+
 __DeckDetailViewTest__
 - test_deck_detail_view: Verifies that the deck_detail view:
 
@@ -239,12 +243,10 @@ __DeckFormTest__
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub) 
-
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab and pages section 
-  - From the source section drop-down menu, select the main branch
-  - Click save and the page will be automatically deployed 
+- The site was deployed to Heroku. The steps to deploy are as follows: 
+  - In the GitHub repository, ensure the version in branch is the version desired
+  - Ensure debug is set to false
+  - manually deploy the branch
 
 The live link can be found here - https://kelvinc181.github.io/Awareness/
 
@@ -255,7 +257,12 @@ This project was done during CI full stack developer bootcamp.  The design proce
 
 ### AI Assistance Declaration
 
-This project was developed with the assistance of AI tools, including GitHub Copilot. These tools were used to help generate code snippets, provide suggestions, and improve overall productivity during the development process. While AI tools provided valuable assistance, all final decisions and implementations were made by the project developer.
+This project was developed with the assistance of AI tools, including GitHub Copilot.  Co-pilot was used to assist the completetion of my project in terms of efficiency.
+
+Co-pilot was used in the following context:
+  - generation of user story
+  - generation of unit tests
+  - code debugging
 
 ### Content 
 
@@ -265,9 +272,6 @@ This project was developed with the assistance of AI tools, including GitHub Cop
 
 ### Media
 
-- All illustrations used on the home and common issues page are generated using Microsoft Designer
+- All Pokémon images, names, characters, and related marks are trademarks and copyright of The Pokémon Company, Nintendo, Game Freak, or Creatures Inc. (“Pokémon Rights Holders”).
 - The logos for the find help page were taken from google search:
-- [Mental Health Foundation Logo](https://www.google.com/imgres?q=mental%20health%20foundation%20logo%20mhf%20logo&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffd%2FMHF-logo24.png&imgrefurl=https%3A%2F%2Fen.m.wikipedia.org%2Fwiki%2FFile%3AMHF-logo24.png&docid=0MafQ6GVi-dk9M&tbnid=jiPm8OkXWKvYbM&vet=12ahUKEwiY-rPIrtmJAxUvVkEAHaXiLnQQM3oECGwQAA..i&w=823&h=690&hcb=2&ved=2ahUKEwiY-rPIrtmJAxUvVkEAHaXiLnQQM3oECGwQAA)
-- [Mind Logo](https://www.google.com/imgres?q=mind%20logo&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fa%2Fab%2FMind_Charity_Logo_2021.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMind_(charity)&docid=tZcH5rHasZ-zNM&tbnid=DC_qlv7ngSqYdM&vet=12ahUKEwi_-r7trtmJAxWgRUEAHaVsCloQM3oECBkQAA..i&w=421&h=237&hcb=2&ved=2ahUKEwi_-r7trtmJAxWgRUEAHaVsCloQM3oECBkQAA)
-- [Samaritans Logo](https://www.google.com/imgres?q=Samaritans%20logo&imgurl=https%3A%2F%2Fstorage.googleapis.com%2Felasticsauce.appspot.com%2Fgoodmoves-files%2F0683z00000HWJqEAAX-samaritans-core-green-logo.png&imgrefurl=https%3A%2F%2Fgoodmoves.org%2Forganisation%2F001b000000St65pAAB%2Fsamaritans&docid=oVc6p6U4rp-RVM&tbnid=Qku9rpQcKL5CRM&vet=12ahUKEwii3dmwr9mJAxVeX0EAHYgGJI4QM3oECEgQAA..i&w=728&h=194&hcb=2&ved=2ahUKEwii3dmwr9mJAxVeX0EAHYgGJI4QM3oECEgQAA)
-- [Rethink Mental Illness Logo](https://www.google.com/imgres?q=rethink%20mental%20illness%20logo&imgurl=https%3A%2F%2Fwww.arthritisaction.org.uk%2Fwp-content%2Fuploads%2F2019%2F07%2FRethink-Mental-Illness-logo.png&imgrefurl=https%3A%2F%2Fwww.arthritisaction.org.uk%2Fmhdirectory%2Frethink-mental-illness%2Fattachment%2Frethink-mental-illness-logo%2F&docid=zURQVgi9iSAdjM&tbnid=l47bJ2WxYqdKvM&vet=12ahUKEwih7u_Tr9mJAxULVUEAHU3_BhcQM3oECBcQAA..i&w=4124&h=4123&hcb=2&ved=2ahUKEwih7u_Tr9mJAxULVUEAHU3_BhcQM3oECBcQAA)
+- [Pokemon Logo](https://www.cleanpng.com/png-super-smash-bros-melee-computer-icons-pok-ball-3519133/)
