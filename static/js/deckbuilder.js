@@ -53,7 +53,7 @@ const deleteConfirm = document.getElementById('delete-confirm')
  */
 
 //2. add img to deck area dynamically
-const addCardImg = (cardId, cardImgSrc) => {
+const addCardImg = (cardId, cardImgSrc, cardImgAlt) => {
     //create card div
     let cardDiv = document.createElement('div')
     cardDiv.classList.add('col-12', 'col-md-3', 'col-lg-2', 'my-2')
@@ -64,6 +64,7 @@ const addCardImg = (cardId, cardImgSrc) => {
     deckImg.classList.add('deck-img')
     deckImg.setAttribute('src', cardImgSrc)
     deckImg.setAttribute('card-id', cardId)
+    deckImg.setAttribute('alt', cardImgAlt)
 
     //append img to div
     cardDiv.appendChild(deckImg);
@@ -78,9 +79,10 @@ const addCardImg = (cardId, cardImgSrc) => {
 
 //1. append card to deck content field
 const addCard = (cardImg) => {
-    // Get the card ID
+    // Get the card ID/src/alt
     let cardId = cardImg.getAttribute('card-id');
     let cardImgSrc = cardImg.getAttribute('src')
+    let cardImgAlt = cardImg.getAttribute('alt')
 
     // Get content of deck_content
     let deckContent = textarea.value;
@@ -103,7 +105,7 @@ const addCard = (cardImg) => {
             // append card ID to text area
             deckArray.push(cardId);
             textarea.value = deckArray.join(',');
-            addCardImg (cardId, cardImgSrc)
+            addCardImg (cardId, cardImgSrc, cardImgAlt)
         } else {
             alert('deck can only contain 20 cards')
             return;
