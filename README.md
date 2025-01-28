@@ -1,131 +1,273 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Pokedeckz (Capstone Project)
 
-Welcome Kelvin Chan,
+Pokedeckz is my first full stack Django website, it is a project based on my personal passion of the recently release Pokemon TCG Pocket.  The project utilizes html, css, javascript, python and bootstrap, alongside the Django framework to create a feature complete responsive font-end and back-end application.  The site mainly features a card library, and a dynamic deckbuilder.  While the project is mainly created manually, in this project, AI was used in user story generation, debugging, and testing.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+![Responsice Mockup](documentation/readme/)
 
-## Gitpod Reminders
+## Design
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The website is designed to create a place to create and share decks for the Pokemon TCG Pocket game.  I aimed in creating an intuative and interactive application that would be a fun and easy way for people to build decks.  As this project uses the Django framework, the design of the application was built around the concepts of models and views, so in the planning, I started with brainstorming features to build my models around, then expended on those freatures.
 
-`python3 -m http.server`
+### User Stories
 
-A blue button should appear to click: _Make Public_,
+For users, I had 4 main users in mind: the developer, beginner players, verteran players, and the general user.  I took an approach where I had key features in mind before creating the user stories, then I used copilot to generate user stories for these features.
 
-Another blue button should appear to click: _Open Browser_.
+<img src="" alt="copilot" width=49%>
+<img src="" alt="copilot" width=49%>
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+<p style="margin-bottom: 20px;"></p>
 
-A blue button should appear to click: _Make Public_,
+Next I created issues after identifying the acceptance criteria and tasks associate with the user stories.  With this I identified details for the features I would like in the website.  Finally, I then decided their importance in the website and set their priority in the project (please see the linked project Pokedeckz User Stories).
 
-Another blue button should appear to click: _Open Browser_.
+### Layout and Color Scheme/Fonts
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+With the key features in mind I created a wireframe for each page I planned for, to ensure responsiveness I created 3 differnt layouts for each page targeting mobile, tablet and desktop devices.  In these layouts, I considered what I would believe to look best and is most natural to view on each screen size and designed my responsive grid/features accordingly.
 
-To log into the Heroku toolbelt CLI:
+<img src="documentation/readme/" alt="copilot users" width=33%>
+<img src="documentation/readme/" alt="copilot users" width=33%>
+<img src="documentation/readme/" alt="copilot users" width=33%>
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+<p style="margin-bottom: 20px;"></p>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+As I had a clear theme, I took inspiration from the pokemon franchise's iconic color scheme of red, white and black.  I also wanted the website to be playful and intersting, so I went for a more imaginative and casual approach when deciding for fonts.
 
-### Connecting your Mongo database
+In the end, I settled on a color scheme of white as base color, red as the primary color, and black as a bonding agent between features.  I had yellow and blue as extra colors for other secondary features as a reference to the pokemon franchise.  
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+I picked Atma for the nav bar as the face of the website as it was playful but not too exaggerated, roboto for inner text for a clean, clear representation of the inner elements.
 
-------
+## Features 
 
-## Release History
+In this project, all features revolves around the main feature of the deck builder.
+There are 4 major features:
+ - Deck Builder: 
+    - allows the building and saving of a deck
+    - dynamically displayed deck as it is built
+    - click library cards to add to deck
+    - click cards in deck to remove from deck
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+ - Card Library:
+    - displays all cards in the card database
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
 
-**June 18, 2024,** Add Mongo back into template
+ - Deck Forum:
+    - displays all public decks
+    - allows users to interact using comments (in development)
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+ - Card Detail(in development):
+    - displays all details of a card
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
 
-**May 28 2024:** Fix Mongo and Links installs
+In the following section, the features will be explained according to the Django framework, which is Model, Views, and Templates.
 
-**April 26 2024:** Update node version to 16
+### Django Deepdive
 
-**September 20 2023:** Update Python version to 3.9.17.
+- __Models__
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+  - The two main models for the current version of the application is the Card model and the Deck model.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+  
+<img src="documentation/readme/" alt="navbar desktop view" width=100%>
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+<p style="margin-bottom: 20px;"></p>
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- __Views__
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+  - card-library: a display of all cards in the card database 
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+  - deckbuilder: a combination of deck-form and card database.  Allows a submission of an instance of deck model and displays the card database for an interacttive deck building experience
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+  - deck-list/my-decks: a display of all public decks and all decks of the user respectively
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+  - deck-detail: a display of a selected deck instance
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+  - edit-deck: allows the modification of the selected deck instance
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+  - delete-deck: deletes the selected deck instance
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+  - card-detail(in developement): displays the full details of a card instance
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+<p style="margin-bottom: 20px;"></p>
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- __Templates__
 
-------
+  - base.html: base for all templates
 
-## FAQ about the uptime script
+  - card_library.html: template for card libray, displays all cards in card database
 
-**Why have you added this script?**
+  - deck_list/my_decks.html: templates for deck list/mt decks, displays filtered results of decks
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+  - deck_detail.html: template for deck detail, displays the cards in the choosen deck
 
-**How will this affect me?**
+  - deckbuilder.html: template for deckbuilder and edit deck, displays the dynamically interactive form and the card library
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+  - card_detail.html: template for card details, displays all details of cards (in development)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+  - login/logout/signup.html: templates for authentication
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+<p style="margin-bottom: 20px;"></p>
 
-**So….?**
+### Features Left to Implement
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- Comments: allow users to comment on the public decks.
+- Upgrade card model: to include more information in the card model e.g poekmon type, hp.
+- Display main card in deck-list: to include the main card of the deck in the deck list/ my decks views
+- Filter and seach: improve user experience by allowing for filter and search functionality for the card library and deck list/my decks views.
 
-**Can I opt out?**
+## Testing 
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+The project went through manual testing on the live website.  Then I implemented automatic tests and validators to throughly test for errors.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Unit Testing
 
-**Anything more?**
+__DeckDetailViewTest__
+- test_deck_detail_view: Verifies that the deck_detail view:
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+  - Returns a 200 status code.
 
----
+  - Uses the deckbuilder/deck_detail.html template.
 
-Happy coding!
+  - Contains the names of the cards in the deck_content.
+
+__MyDecksViewTest__
+- test_my_decks_view: Verifies that the my_decks view:
+
+  - Returns a 200 status code.
+
+  - Uses the deckbuilder/my_decks.html template.
+
+  - Returns only the decks belonging to the logged-in user.
+
+__DeckbuilderViewTest__
+- test_deckbuilder_view_get: Verifies that the deckbuilder view:
+
+  - Returns a 200 status code.
+
+  - Uses the deckbuilder/deckbuilder.html template.
+
+- test_deckbuilder_view_post_valid_data: Verifies that submitting valid data to the deckbuilder view:
+
+  - Returns a 302 status code (indicating a successful redirect after saving the deck).
+
+- test_deckbuilder_view_post_invalid_data: Verifies that submitting invalid data to the deckbuilder view:
+
+  - Returns a 200 status code (indicating form errors and re-rendering the same page).
+
+  - Displays the appropriate form error messages.
+
+__EditDeckViewTest__
+- test_edit_deck_view_get: Verifies that the edit_deck view:
+
+  - Returns a 200 status code.
+
+  - Uses the deckbuilder/deckbuilder.html template.
+
+  - Gets the correct data from the existing deck (deck name, deck content, additional info).
+
+- test_edit_deck_view_post: Verifies that submitting valid data to the edit_deck view:
+
+  - Returns a 302 status code (indicating a successful redirect after saving the deck).
+
+__DeleteDeckViewTest__
+- test_delete_deck_view: Verifies that submitting a POST request to the delete_deck view:
+
+  - Returns a 302 status code (indicating a successful redirect after deleting the deck).
+
+  - The deck no longer exists in the database.
+
+__DeckFormTest__
+- test_deck_form_valid_data: Verifies that the DeckForm:
+
+  - Is valid when provided with correct data.
+
+- test_deck_form_no_data: Verifies that the DeckForm:
+
+  - Is invalid when no data is provided.
+
+  - Generates the correct number of error messages for missing required fields.
+
+### Validator Testing 
+
+- HTML
+  - each page was passed through the official W3C validator
+    - <img src="documentation/readme/hval1.jpg" alt="W3C validating card library page" width=100%>
+    - <img src="documentation/readme/hval2.jpg" alt="W3C validating deck list page" width=100%>
+    - <img src="documentation/readme/hval3.jpg" alt="W3C validating deck detail page" width=100%>
+    - <img src="documentation/readme/hval4.jpg" alt="W3C validating deck-builder page" width=100%>
+
+- CSS
+  - No errors were found when passing through the official W3C(Jigsaw) validator
+  - <img src="documentation/readme/cval.jpg" alt="W3C validating card library page" width=100%>
+
+-JS
+  -No error, only warning found when passing through the JS hint validator
+  - <img src="documentation/readme/jval.jpg" alt="W3C validating card library page" width=100%>
+
+- Lighthouse
+  - Good scores were achieved in lighthouse
+  - Best practice score in index.html due to youtube embed
+  
+  <p style="margin-bottom: 20px;"></p>
+  <img src="documentation/readme/lighthouse1.jpg" alt="lighthouse for index.html" width=49%>
+  <img src="documentation/readme/lighthouse2.jpg" alt="lighthouse for info.html" width=49%>
+  <img src="documentation/readme/lighthouse3.jpg" alt="lighthouse for resources.html" width=49%>
+  <img src="documentation/readme/lighthouse4.jpg" alt="lighthouse for form.html" width=49%>
+  <p style="margin-bottom: 20px;"></p>
+
+### Unfixed Bugs
+- When passing through the JS hint validator, it mentions that functions declared within loops referencing an outer scoped variable may lead to confusing semantics for the function:
+    - for (let cardImg of cardImgs) {
+        cardImg.addEventListener('click', () => addCard(cardImg));
+      }
+    
+    - for (let deckAreaImg of deckAreaImgs) {
+        deckAreaImg.addEventListener('click', () => deleteCard(deckAreaImg));
+    }
+    
+    - for (let closeButton of closeButtons) {
+        closeButton.addEventListener('click', function() {
+            deleteDeckModal.classList.add('hidden');
+        });
+    }
+
+ I currently could not figure out a way to change this without breaking the script, currently it poses no probelm functionally to the site, so this will be investigated in future iterations
+
+
+## Deployment
+
+This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub) 
+
+- The site was deployed to GitHub pages. The steps to deploy are as follows: 
+  - In the GitHub repository, navigate to the Settings tab and pages section 
+  - From the source section drop-down menu, select the main branch
+  - Click save and the page will be automatically deployed 
+
+The live link can be found here - https://kelvinc181.github.io/Awareness/
+
+
+## Credits 
+
+This project was done during CI full stack developer bootcamp.  The design process, some page structures and features are inspired by and further developed on from the walk-projects of the course.
+
+### AI Assistance Declaration
+
+This project was developed with the assistance of AI tools, including GitHub Copilot. These tools were used to help generate code snippets, provide suggestions, and improve overall productivity during the development process. While AI tools provided valuable assistance, all final decisions and implementations were made by the project developer.
+
+### Content 
+
+- All text content are prompted and created by GitHub Copilot and futher modifed to fit the website.
+- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- Fonts can be found on google fonts
+
+### Media
+
+- All illustrations used on the home and common issues page are generated using Microsoft Designer
+- The logos for the find help page were taken from google search:
+- [Mental Health Foundation Logo](https://www.google.com/imgres?q=mental%20health%20foundation%20logo%20mhf%20logo&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffd%2FMHF-logo24.png&imgrefurl=https%3A%2F%2Fen.m.wikipedia.org%2Fwiki%2FFile%3AMHF-logo24.png&docid=0MafQ6GVi-dk9M&tbnid=jiPm8OkXWKvYbM&vet=12ahUKEwiY-rPIrtmJAxUvVkEAHaXiLnQQM3oECGwQAA..i&w=823&h=690&hcb=2&ved=2ahUKEwiY-rPIrtmJAxUvVkEAHaXiLnQQM3oECGwQAA)
+- [Mind Logo](https://www.google.com/imgres?q=mind%20logo&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fa%2Fab%2FMind_Charity_Logo_2021.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMind_(charity)&docid=tZcH5rHasZ-zNM&tbnid=DC_qlv7ngSqYdM&vet=12ahUKEwi_-r7trtmJAxWgRUEAHaVsCloQM3oECBkQAA..i&w=421&h=237&hcb=2&ved=2ahUKEwi_-r7trtmJAxWgRUEAHaVsCloQM3oECBkQAA)
+- [Samaritans Logo](https://www.google.com/imgres?q=Samaritans%20logo&imgurl=https%3A%2F%2Fstorage.googleapis.com%2Felasticsauce.appspot.com%2Fgoodmoves-files%2F0683z00000HWJqEAAX-samaritans-core-green-logo.png&imgrefurl=https%3A%2F%2Fgoodmoves.org%2Forganisation%2F001b000000St65pAAB%2Fsamaritans&docid=oVc6p6U4rp-RVM&tbnid=Qku9rpQcKL5CRM&vet=12ahUKEwii3dmwr9mJAxVeX0EAHYgGJI4QM3oECEgQAA..i&w=728&h=194&hcb=2&ved=2ahUKEwii3dmwr9mJAxVeX0EAHYgGJI4QM3oECEgQAA)
+- [Rethink Mental Illness Logo](https://www.google.com/imgres?q=rethink%20mental%20illness%20logo&imgurl=https%3A%2F%2Fwww.arthritisaction.org.uk%2Fwp-content%2Fuploads%2F2019%2F07%2FRethink-Mental-Illness-logo.png&imgrefurl=https%3A%2F%2Fwww.arthritisaction.org.uk%2Fmhdirectory%2Frethink-mental-illness%2Fattachment%2Frethink-mental-illness-logo%2F&docid=zURQVgi9iSAdjM&tbnid=l47bJ2WxYqdKvM&vet=12ahUKEwih7u_Tr9mJAxULVUEAHU3_BhcQM3oECBcQAA..i&w=4124&h=4123&hcb=2&ved=2ahUKEwih7u_Tr9mJAxULVUEAHU3_BhcQM3oECBcQAA)

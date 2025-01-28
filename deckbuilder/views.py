@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .models import Deck
 from .forms import DeckForm
@@ -16,7 +18,7 @@ class DeckList(generic.ListView):
     template_name = "deckbuilder/deck_list.html"
     paginate_by = 12
 
-class MyDecks(generic.ListView):
+class MyDecks(LoginRequiredMixin, generic.ListView):
     """
     displays all of user's decks
     """
@@ -27,7 +29,7 @@ class MyDecks(generic.ListView):
         return Deck.objects.filter(author=self.request.user)
     
 
-
+@login_required
 def deckbuilder(request):
     """
     Builds a deck as :model:`deckbuilder.Deck`.

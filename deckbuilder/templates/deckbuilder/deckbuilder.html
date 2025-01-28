@@ -19,7 +19,7 @@
                 {% if edit_mode %}
                     {% for card in deck_cards %}
                     <div class="col-12 col-md-4 col-lg-2 my-2">
-                        <img class="deck-img" src="{{ card.card_image.url }}" card-id="{{ card.card_id }}">
+                        <img class="deck-img" src="{{ card.card_image.url }}" data-card-id="{{ card.card_id }}" alt="{{ card.name }}">
                     </div>
                     {% endfor %}
                 {% endif %}
@@ -39,10 +39,10 @@
         {% endif %}
     </div>
 
-    <div class="card-library row">
+    <div class="library row">
         {% for card in cards %}
         <div class="col-12 col-md-4 col-lg-2 my-2">
-            <img class="library-img" src="{{ card.card_image.url }}" card-id="{{card.card_id}}">
+            <img class="library-img" src="{{ card.card_image.url }}" data-card-id="{{card.card_id}}" alt="{{card.name}}">
         </div>
         {% endfor %}
     </div>
@@ -51,18 +51,18 @@
 
 <!-- Delete confirmation modal -->
 <div id="delete-modal" class="hidden">
-    <div>
+    <div id="delete-modal-content">
         
-        <div>
-            <h5>Delete Deck</h5>
-            <button type="button" class="btn-close close-button" aria-label="Close"></button>
+        <div class="custom-modal-header px-2">
+            <h5 class="m-0">Delete Deck</h5>
+            <button type="button" class="btn-close close-button ms-auto" aria-label="Close"></button>
         </div>
-        <div>
+        <div class="px-3 my-2">
             Are you sure you want to delete your deck?
             This action cannot be undone.
         </div>
         <div>
-            <button type="button" class="btn btn-secondary close-button">Close</button>
+            <button type="button" class="btn btn-secondary close-button me-2">Close</button>
             <a id="delete-confirm" {% if edit_mode %} href="{% url 'delete_deck' deck.id %}" {% endif %} class="btn
             btn-danger">Delete</a>
         </div>
