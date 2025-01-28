@@ -68,7 +68,7 @@ In the following section, the features will be explained according to the Django
 - __Models__
 
   - The two main models for the current version of the application is the Card model and the Deck model.
-  - There is a model for comments which is in development
+
   
 <img src="documentation/readme/" alt="navbar desktop view" width=100%>
 
@@ -194,13 +194,18 @@ __DeckFormTest__
 
 - HTML
   - each page was passed through the official W3C validator
-  - [Home Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fkelvinc181.github.io%2FAwareness%2Findex.html)
-  - [Common Issues](https://validator.w3.org/nu/?doc=https%3A%2F%2Fkelvinc181.github.io%2FAwareness%2Finfo.html)
-  - [Find Help](https://validator.w3.org/nu/?doc=https%3A%2F%2Fkelvinc181.github.io%2FAwareness%2Fresources.html)
-  - [Contact Form](https://validator.w3.org/nu/?doc=https%3A%2F%2Fkelvinc181.github.io%2FAwareness%2Fform.html)
+    - <img src="documentation/readme/hval1.jpg" alt="W3C validating card library page" width=100%>
+    - <img src="documentation/readme/hval2.jpg" alt="W3C validating deck list page" width=100%>
+    - <img src="documentation/readme/hval3.jpg" alt="W3C validating deck detail page" width=100%>
+    - <img src="documentation/readme/hval4.jpg" alt="W3C validating deck-builder page" width=100%>
+
 - CSS
   - No errors were found when passing through the official W3C(Jigsaw) validator
-  - [CSS](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fkelvinc181.github.io%2FAwareness%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - <img src="documentation/readme/cval.jpg" alt="W3C validating card library page" width=100%>
+
+-JS
+  -No error, only warning found when passing through the JS hint validator
+  - <img src="documentation/readme/jval.jpg" alt="W3C validating card library page" width=100%>
 
 - Lighthouse
   - Good scores were achieved in lighthouse
@@ -214,9 +219,6 @@ __DeckFormTest__
   <p style="margin-bottom: 20px;"></p>
 
 ### Unfixed Bugs
-
-- When passing through the HTML validator, it mentioned that "card-id" is not an allowed variable, but functionally it does not affect the running of the website and is a key part of the javascript functionality, thus will be changed in a later iteration
-
 - When passing through the JS hint validator, it mentions that functions declared within loops referencing an outer scoped variable may lead to confusing semantics for the function:
     - for (let cardImg of cardImgs) {
         cardImg.addEventListener('click', () => addCard(cardImg));

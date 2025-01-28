@@ -18,17 +18,3 @@ class Deck(models.Model):
     def __str__(self):
         return f"{self.deck_name}"
     
-class Comment(models.Model):
-    deck =  models.ForeignKey(
-        Deck, on_delete=models.CASCADE, related_name="comments"
-    )
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="commenter"
-    )
-    body = models.TextField()
-    approved = models.BooleanField(default=False)
-    created_on = models.DateTimeField(auto_now_add=True)
-    class Meta:
-        ordering = ["created_on"]
-    def __str__(self):
-        return f"Comment {self.body} by {self.author}"
