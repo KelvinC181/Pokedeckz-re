@@ -39,109 +39,156 @@ I picked Atma for the nav bar as the face of the website as it was playful but n
 ## Features 
 
 In this project, all features revolves around the main feature of the deck builder.
-There are 4 main features:
- - Deck Builder
- - Card Library
- - Card Detail
- - Deck Forum
+There are 4 major features:
+ - Deck Builder: 
+    - allows the building and saving of a deck
+    - dynamically displayed deck as it is built
+    - click library cards to add to deck
+    - click cards in deck to remove from deck
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
+
+ - Card Library:
+    - displays all cards in the card database
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
+
+ - Deck Forum:
+    - displays all public decks
+    - allows users to interact using comments (in development)
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
+
+ - Card Detail(in development):
+    - displays all details of a card
+    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
 
 In the following section, the features will be explained according to the Django framework, which is Model, Views, and Templates.
 
-### Existing Features
+### Django Deepdive
 
-- __Navigation Bar__
+- __Models__
 
-  - Featured on all pages, the full responsive navigation bar includes links to Home page, Common Issues page, Find Help page and a button connecting to the sign up form for easy navigation.
-  - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
+  - The two main models for the current version of the application is the Card model and the Deck model.
+  - There is a model for comments which is in development
+  
+<img src="documentation/readme/" alt="navbar desktop view" width=100%>
 
-<img src="documentation/readme/navbar1.jpg" alt="navbar desktop view" width=100%>
-<img src="documentation/readme/navbar2.jpg" alt="navbar tablet view" width=70%>
-<img src="documentation/readme/navbar3.jpg" alt="navbar mobile view" width=50%>
 <p style="margin-bottom: 20px;"></p>
 
-- __The landing page image__
+- __Views__
 
-  - The landing includes an illustration with text overlay to allow the user to quicky identify the website's purpose. 
-  - This section introduces the user to Awareness with a welcoming image and quickly intergrates the using to the site.
+  - card-library: a display of all cards in the card database 
 
-<img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
+  - deckbuilder: a combination of deck-form and card database.  Allows a submission of an instance of deck model and displays the card database for an interacttive deck building experience
+
+  - deck-list/my-decks: a display of all public decks and all decks of the user respectively
+
+  - deck-detail: a display of a selected deck instance
+
+  - edit-deck: allows the modification of the selected deck instance
+
+  - delete-deck: deletes the selected deck instance
+
+  - card-detail(in developement): displays the full details of a card instance
+
+
 <p style="margin-bottom: 20px;"></p>
 
-- __About Us__
+- __Templates__
 
-  - The about us section describes in a more detailed manner our purpose, and also gives instruction of how to use the site. 
-  - This helps first time user understand the purpose of our site and guides the user to navigate the site.  This should hopefully make it more likely that our targeted user will find the help they need using our site.
+  - base.html: base for all templates
 
-<img src="documentation/readme/aboutus.jpg" alt="about us section image" width=100%>
-<p style="margin-bottom: 20px;"></p>
+  - card_library.html: template for card libray, displays all cards in card database
 
-- __Awareness and Prevension__
+  - deck_list/my_decks.html: templates for deck list/mt decks, displays filtered results of decks
 
-  - This section gives a short introduction to the importance of awareness and prevention of mental health issues, and has an embedded video about the topic and a call to action button leading to the next section. 
-  - This section highlights the importance of awareness and prevention, then gives more detail through the embedded video to encourage call to action.
+  - deck_detail.html: template for deck detail, displays the cards in the choosen deck
 
-<img src="documentation/readme/a&p.jpg" alt="awareness and prevention section image" width=100%>
-<p style="margin-bottom: 20px;"></p>
+  - deckbuilder.html: template for deckbuilder and edit deck, displays the dynamically interactive form and the card library
 
-- __The Footer__ 
+  - card_detail.html: template for card details, displays all details of cards (in development)
 
-  - The fully respooinsive footer section includes links to the relevant contact details and social media sites for Awareness. There is also a call to action button to contact us. 
-  - The footer is valuable to the user as it encourages them to contact us to find help.
+  - login/logout/signup.html: templates for authentication
 
-<img src="documentation/readme/footer1.jpg" alt="footer desktop view" width=100%>
-<img src="documentation/readme/footer2.jpg" alt="footer tablet view" width=70%>
-<img src="documentation/readme/footer3.jpg" alt="footer mobile view" width=50%>
-<p style="margin-bottom: 20px;"></p>
-
-- __Sidebar__
-
-  - The fully responsive sidebar has links to each topic of the common issue section. 
-  - This sidebar helps users navigate to the topics they want to see quickly and easily. 
-  - *I would like to make the sidebar close when navbar is clicked on but this requires javascript and will be updated in the future*
-
-<img src="documentation/readme/sidebar1.jpg" alt="sidebar desktop view" width=33%>
-<img src="documentation/readme/sidebar2.jpg" alt="sidebar mobile view collapsed" width=33%>
-<img src="documentation/readme/sidebar3.jpg" alt="footer mobile view" width=33%>
-<p style="margin-bottom: 20px;"></p>
-
-
-- __Common Issues__
-
-  - This page containes simple information about some common mental health issues.  Each topic also contains a call to action button linking to related pages with more detailed information.
-  - This page gives brief information to users and encourage them to find out more about these issues.  This should encourage users to learn about mental health and possibly identify their problem and if they need professional help.
-
-<img src="documentation/readme/info.jpg" alt="common issue section" width=100%>
-<p style="margin-bottom: 20px;"></p>
-
-- __Resources/Find Help__
-
-  - This page consists of bootstrap cards regarding external resources for finding help for mental health issues.  Each card contains an image of the logo of the resourse, a brief description and a call to action for the user to visit the resource.
-  - This page serves as the main call to action of the website, it provides serveral resources for individuals who wants to seek help to actually find help and contact professionals, and hope to make it easy and intuative to do so.
-
-<img src="documentation/readme/help.jpg" alt="find help section" width=100%>
-<p style="margin-bottom: 20px;"></p>
-
-- __Contact Form__
-
-  - This is a form for users to fill in in their contact information so they could be contacted for any futhre inquiries.  A modual is included to provide confirmation that the form is submitted correctly.
-  - This provides a method of call to action for users in need to seek help by providing more options to those with other unincluded mental health issues.
-
-<img src="documentation/readme/form.jpg" alt="contact form" width=80%>
-<img src="documentation/readme/modal.jpg" alt="confirmation modal" width=19%>
 <p style="margin-bottom: 20px;"></p>
 
 ### Features Left to Implement
 
-- Events Section: Contains recent mental health wellness events that are updated.
-- User Testimonies: For users to sumbit and view messages and stories of their mental health journey.
+- Comments: allow users to comment on the public decks.
+- Upgrade card model: to include more information in the card model e.g poekmon type, hp.
+- Display main card in deck-list: to include the main card of the deck in the deck list/ my decks views
+- Filter and seach: improve user experience by allowing for filter and search functionality for the card library and deck list/my decks views.
 
 ## Testing 
 
-My project went through multiple tests.  I conduct tests on features whenever I "finish" a feature and whenever I add other features that may interact with an older feature.  This allowed me to constantly find bugs and inconsitency in the project, then correct and modify the project accoringly.
+The project went through manual testing on the live website.  Then I implemented automatic tests and validators to throughly test for errors.
 
-At the end of the project I futher tested the website by using validators and lighthouse to validate and ensure performance of the project.
+### Unit Testing
 
-My project is full responsive, and will automatically resize and reorder items using a responsive bootstrap grid and custom css at different screensize breakpoints.  This is to ensure that the website is easy to read and good to look at with any device.
+__DeckDetailViewTest__
+- test_deck_detail_view: Verifies that the deck_detail view:
+
+  - Returns a 200 status code.
+
+  - Uses the deckbuilder/deck_detail.html template.
+
+  - Contains the names of the cards in the deck_content.
+
+__MyDecksViewTest__
+- test_my_decks_view: Verifies that the my_decks view:
+
+  - Returns a 200 status code.
+
+  - Uses the deckbuilder/my_decks.html template.
+
+  - Returns only the decks belonging to the logged-in user.
+
+__DeckbuilderViewTest__
+- test_deckbuilder_view_get: Verifies that the deckbuilder view:
+
+  - Returns a 200 status code.
+
+  - Uses the deckbuilder/deckbuilder.html template.
+
+- test_deckbuilder_view_post_valid_data: Verifies that submitting valid data to the deckbuilder view:
+
+  - Returns a 302 status code (indicating a successful redirect after saving the deck).
+
+- test_deckbuilder_view_post_invalid_data: Verifies that submitting invalid data to the deckbuilder view:
+
+  - Returns a 200 status code (indicating form errors and re-rendering the same page).
+
+  - Displays the appropriate form error messages.
+
+__EditDeckViewTest__
+- test_edit_deck_view_get: Verifies that the edit_deck view:
+
+  - Returns a 200 status code.
+
+  - Uses the deckbuilder/deckbuilder.html template.
+
+  - Gets the correct data from the existing deck (deck name, deck content, additional info).
+
+- test_edit_deck_view_post: Verifies that submitting valid data to the edit_deck view:
+
+  - Returns a 302 status code (indicating a successful redirect after saving the deck).
+
+__DeleteDeckViewTest__
+- test_delete_deck_view: Verifies that submitting a POST request to the delete_deck view:
+
+  - Returns a 302 status code (indicating a successful redirect after deleting the deck).
+
+  - The deck no longer exists in the database.
+
+__DeckFormTest__
+- test_deck_form_valid_data: Verifies that the DeckForm:
+
+  - Is valid when provided with correct data.
+
+- test_deck_form_no_data: Verifies that the DeckForm:
+
+  - Is invalid when no data is provided.
+
+  - Generates the correct number of error messages for missing required fields.
 
 ### Validator Testing 
 
