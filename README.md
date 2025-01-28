@@ -2,6 +2,8 @@
 
 Pokedeckz is my first full stack Django website, it is a project based on my personal passion of the recently release Pokemon TCG Pocket.  The project utilizes html, css, javascript, python and bootstrap, alongside the Django framework to create a feature complete responsive font-end and back-end application.  The site mainly features a card library, and a dynamic deckbuilder.  While the project is mainly created manually, in this project, AI was used in user story generation, debugging, and testing.
 
+live link - https://pokedeckz-66be6c7e2c2c.herokuapp.com/
+miro board - https://miro.com/welcomeonboard/eEpnYktac3M3dCtlU0Q4MUw5SmVHaHovamhBMDBRS1JlRXZ6RkZSbVpkMHJoL1pTQWc5UzFmUlZ2MDdNZVViL2RtUDZyQ1p4dTFRb3oreTFRVmVPTnhRLzdyZlFxemlYMG9zVTNtZGJWRURQN2JBL3JjSlNTVnpuY2RseEZRcW8hZQ==?share_link_id=796340884383
 
 ![Responsice Mockup](documentation/readme/mockup.jpg)
 
