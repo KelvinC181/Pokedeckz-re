@@ -242,7 +242,7 @@ __DeckFormTest__
   - Ensure debug is set to false
   - manually deploy the branch
 
-The live link can be found here - https://kelvinc181.github.io/Awareness/
+The live link can be found here - https://pokedeckz-66be6c7e2c2c.herokuapp.com/
 
 
 ## Credits 
