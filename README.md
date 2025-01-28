@@ -193,7 +193,7 @@ __DeckFormTest__
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official W3C validator
+  - each page was passed through the official W3C validator
   - [Home Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fkelvinc181.github.io%2FAwareness%2Findex.html)
   - [Common Issues](https://validator.w3.org/nu/?doc=https%3A%2F%2Fkelvinc181.github.io%2FAwareness%2Finfo.html)
   - [Find Help](https://validator.w3.org/nu/?doc=https%3A%2F%2Fkelvinc181.github.io%2FAwareness%2Fresources.html)
@@ -215,9 +215,25 @@ __DeckFormTest__
 
 ### Unfixed Bugs
 
-There are a few features I would consider as "bugs" but these will require javascript to amend, and will be updated in the future.
-- navbar should close when anywhere else is clicked on the screen.
-- sidebar should close when anywhere else is clicked on the screen.
+- When passing through the HTML validator, it mentioned that "card-id" is not an allowed variable, but functionally it does not affect the running of the website and is a key part of the javascript functionality, thus will be changed in a later iteration
+
+- When passing through the JS hint validator, it mentions that functions declared within loops referencing an outer scoped variable may lead to confusing semantics for the function:
+    - for (let cardImg of cardImgs) {
+        cardImg.addEventListener('click', () => addCard(cardImg));
+      }
+    
+    - for (let deckAreaImg of deckAreaImgs) {
+        deckAreaImg.addEventListener('click', () => deleteCard(deckAreaImg));
+    }
+    
+    - for (let closeButton of closeButtons) {
+        closeButton.addEventListener('click', function() {
+            deleteDeckModal.classList.add('hidden');
+        });
+    }
+
+ I currently could not figure out a way to change this without breaking the script, currently it poses no probelm functionally to the site, so this will be investigated in future iterations
+
 
 ## Deployment
 
