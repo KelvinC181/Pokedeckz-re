@@ -2,8 +2,10 @@
 
 Pokedeckz is my first full stack Django website, it is a project based on my personal passion of the recently release Pokemon TCG Pocket.  The project utilizes html, css, javascript, python and bootstrap, alongside the Django framework to create a feature complete responsive font-end and back-end application.  The site mainly features a card library, and a dynamic deckbuilder.  While the project is mainly created manually, in this project, AI was used in user story generation, debugging, and testing.
 
+live link - https://pokedeckz-66be6c7e2c2c.herokuapp.com/
+miro board - https://miro.com/welcomeonboard/eEpnYktac3M3dCtlU0Q4MUw5SmVHaHovamhBMDBRS1JlRXZ6RkZSbVpkMHJoL1pTQWc5UzFmUlZ2MDdNZVViL2RtUDZyQ1p4dTFRb3oreTFRVmVPTnhRLzdyZlFxemlYMG9zVTNtZGJWRURQN2JBL3JjSlNTVnpuY2RseEZRcW8hZQ==?share_link_id=796340884383
 
-![Responsice Mockup](documentation/readme/)
+![Responsice Mockup](documentation/readme/mockup.jpg)
 
 ## Design
 
@@ -13,8 +15,7 @@ The website is designed to create a place to create and share decks for the Poke
 
 For users, I had 4 main users in mind: the developer, beginner players, verteran players, and the general user.  I took an approach where I had key features in mind before creating the user stories, then I used copilot to generate user stories for these features.
 
-<img src="" alt="copilot" width=49%>
-<img src="" alt="copilot" width=49%>
+<img src="documentation/readme/story-prompting.jpg" alt="copilot user story prompting" width=100%>
 
 <p style="margin-bottom: 20px;"></p>
 
@@ -23,10 +24,6 @@ Next I created issues after identifying the acceptance criteria and tasks associ
 ### Layout and Color Scheme/Fonts
 
 With the key features in mind I created a wireframe for each page I planned for, to ensure responsiveness I created 3 differnt layouts for each page targeting mobile, tablet and desktop devices.  In these layouts, I considered what I would believe to look best and is most natural to view on each screen size and designed my responsive grid/features accordingly.
-
-<img src="documentation/readme/" alt="copilot users" width=33%>
-<img src="documentation/readme/" alt="copilot users" width=33%>
-<img src="documentation/readme/" alt="copilot users" width=33%>
 
 <p style="margin-bottom: 20px;"></p>
 
@@ -45,21 +42,20 @@ There are 4 major features:
     - dynamically displayed deck as it is built
     - click library cards to add to deck
     - click cards in deck to remove from deck
-    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
+    - <img src="documentation/readme/deckbuilder.jpg" alt="deck builder" width=100%>
 
  - Card Library:
     - displays all cards in the card database
-    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
+    - <img src="documentation/readme/home.jpg" alt="card library" width=100%>
 
  - Deck Forum:
     - displays all public decks
     - allows users to interact using comments (in development)
-    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
-    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
+    - <img src="documentation/readme/decklist.jpg" alt="deck list" width=100%>
+    - <img src="documentation/readme/deckdetail.jpg" alt="deck detail" width=100%>
 
  - Card Detail(in development):
     - displays all details of a card
-    - <img src="documentation/readme/landing.jpg" alt="awareness landing image" width=100%>
 
 In the following section, the features will be explained according to the Django framework, which is Model, Views, and Templates.
 
@@ -70,7 +66,7 @@ In the following section, the features will be explained according to the Django
   - The two main models for the current version of the application is the Card model and the Deck model.
 
   
-<img src="documentation/readme/" alt="navbar desktop view" width=100%>
+<img src="documentation/readme/model.png" alt="model relations" width=100%>
 
 <p style="margin-bottom: 20px;"></p>
 
@@ -213,13 +209,13 @@ __DeckFormTest__
 
 - Lighthouse
   - Good scores were achieved in lighthouse
-  - Best practice score in index.html due to youtube embed
+  - Best practice score lower due to http
   
   <p style="margin-bottom: 20px;"></p>
-  <img src="documentation/readme/lighthouse1.jpg" alt="lighthouse for index.html" width=49%>
-  <img src="documentation/readme/lighthouse2.jpg" alt="lighthouse for info.html" width=49%>
-  <img src="documentation/readme/lighthouse3.jpg" alt="lighthouse for resources.html" width=49%>
-  <img src="documentation/readme/lighthouse4.jpg" alt="lighthouse for form.html" width=49%>
+  <img src="documentation/readme/lh1.jpg" alt="lighthouse for home page" width=28%>
+  <img src="documentation/readme/lh2.jpg" alt="lighthouse for deck builder" width=28%>
+  <img src="documentation/readme/lh3.jpg" alt="lighthouse for deck detail" width=28%>
+ 
   <p style="margin-bottom: 20px;"></p>
 
 ### Unfixed Bugs
@@ -248,7 +244,7 @@ __DeckFormTest__
   - Ensure debug is set to false
   - manually deploy the branch
 
-The live link can be found here - https://kelvinc181.github.io/Awareness/
+The live link can be found here - https://pokedeckz-66be6c7e2c2c.herokuapp.com/
 
 
 ## Credits 
