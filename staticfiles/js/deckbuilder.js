@@ -23,8 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
 const cardImgs = document.querySelectorAll('.library-img');
 const textarea = document.querySelector('textarea[name="deck_content"]');
+console.log('Textarea:', textarea);
 const deckarea = document.querySelector('.deck-area');
 const deleteDeckButton = document.querySelector('.delete-deck');
 const closeButtons = document.querySelectorAll('.close-button');
