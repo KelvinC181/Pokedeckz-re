@@ -259,7 +259,11 @@ __DeckFormTest__
 
 - The site was deployed to Heroku. The steps to deploy are as follows: 
   - In the GitHub repository, ensure the version in branch is the version desired
-  - Ensure debug is set to false
+  - Set up secret key in Heroku app config vars
+  - Set up database URl in config vars
+  - Set up cloudinary URL in config vars
+  - Ensure debug is set to false in settings.py
+  - Connect the app to the repository in heroku 
   - manually deploy the branch
 
 The live link can be found here - https://pokedeckz-66be6c7e2c2c.herokuapp.com/
