@@ -81,7 +81,8 @@ const addCardImg = (cardId, cardImgSrc, cardImgAlt) => {
 //1. append card to deck content field
 const addCard = (cardImg) => {
     // Get the card ID/src/alt
-    let cardId = cardImg.getAttribute('card-id');
+    let cardId = cardImg.getAttribute('data-card-id');
+    console.log('Card ID:', cardId);
     let cardImgSrc = cardImg.getAttribute('src');
     let cardImgAlt = cardImg.getAttribute('alt');
 
@@ -104,8 +105,11 @@ const addCard = (cardImg) => {
         // check if deck array is longer than 20
         if (deckArray.length<20) {
             // append card ID to text area
+            console.log('Deck Array before:', deckArray);
             deckArray.push(cardId);
+            console.log('Deck Array after:', deckArray);
             textarea.value = deckArray.join(',');
+            console.log('Updated Textarea Value:', textarea.value);
             addCardImg (cardId, cardImgSrc, cardImgAlt);
         } else {
             alert('deck can only contain 20 cards');
@@ -132,7 +136,7 @@ const addCard = (cardImg) => {
 //1. delete card-id from text-area
 const deleteCard = (deckImg) => {
     //get card-id
-    let cardId = deckImg.getAttribute('card-id');
+    let cardId = deckImg.getAttribute('data-card-id');
 
     //get content of deck_content
     let deckContent = textarea.value;
