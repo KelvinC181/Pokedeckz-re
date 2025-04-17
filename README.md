@@ -236,6 +236,14 @@ __DeckFormTest__
  
   <p style="margin-bottom: 20px;"></p>
 
+### Manual Testing
+- The project has been testing by trying all the features:
+  - Create new deck
+  - Edit existing deck
+  - View existing decks
+  - Removed deck
+  - Login/logout
+
 ### Unfixed Bugs
 - When passing through the JS hint validator, it mentions that functions declared within loops referencing an outer scoped variable may lead to confusing semantics for the function:
     - for (let cardImg of cardImgs) {
