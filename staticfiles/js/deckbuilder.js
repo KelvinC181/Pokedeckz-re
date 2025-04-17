@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const cardImgs = document.querySelectorAll('.library-img');
 const textarea = document.querySelector('textarea[name="deck_content"]');
-console.log('Textarea:', textarea);
 const deckarea = document.querySelector('.deck-area');
 const deleteDeckButton = document.querySelector('.delete-deck');
 const closeButtons = document.querySelectorAll('.close-button');
@@ -82,7 +81,6 @@ const addCardImg = (cardId, cardImgSrc, cardImgAlt) => {
 const addCard = (cardImg) => {
     // Get the card ID/src/alt
     let cardId = cardImg.getAttribute('data-card-id');
-    console.log('Card ID:', cardId);
     let cardImgSrc = cardImg.getAttribute('src');
     let cardImgAlt = cardImg.getAttribute('alt');
 
@@ -105,11 +103,8 @@ const addCard = (cardImg) => {
         // check if deck array is longer than 20
         if (deckArray.length<20) {
             // append card ID to text area
-            console.log('Deck Array before:', deckArray);
             deckArray.push(cardId);
-            console.log('Deck Array after:', deckArray);
             textarea.value = deckArray.join(',');
-            console.log('Updated Textarea Value:', textarea.value);
             addCardImg (cardId, cardImgSrc, cardImgAlt);
         } else {
             alert('deck can only contain 20 cards');
@@ -150,8 +145,6 @@ const deleteCard = (deckImg) => {
         deckArray.splice(idPosition,1);
     }
     textarea.value = deckArray.join(',');
-
-    console.log(textarea.value);
 
     //2. delete img from deck area dynamically
     deckImg.parentElement.remove();
