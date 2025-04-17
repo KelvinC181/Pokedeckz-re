@@ -33,6 +33,24 @@ In the end, I settled on a color scheme of white as base color, red as the prima
 
 I picked Atma for the nav bar as the face of the website as it was playful but not too exaggerated, roboto for inner text for a clean, clear representation of the inner elements.
 
+### Wireframe
+- Card Library
+<img src="documentation/readme/wireframe 1.jpg" alt="deck builder" width=100%>
+- Deck Builder
+<img src="documentation/readme/wireframe 2.jpg" alt="deck builder" width=100%>
+
+### Sprints/iterations
+
+The project was finished in 7 main sprints:
+- Planning and design: Starting with user stories, the main design of visual elements are decided on and bakcend models are designed.
+- Setup: Set up django app with backend database.  Settings like secret keys and cloudinary are setup, and make sure backend is linked properly.
+- Backend Sprint: Set up all models.
+- Frontend Sprint 1: Setting up the card library app views and templates.
+- Frontend Sprint 2: Setting up the deck builder app views and templates.
+- Functionality Sprint: Setting up the deck builder post form and javascript for the deck building functionality.
+- Testing: Create the unit tests and use the validators for testing. 
+
+
 ## Features 
 
 In this project, all features revolves around the main feature of the deck builder.
