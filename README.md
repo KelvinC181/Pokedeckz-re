@@ -268,6 +268,21 @@ __DeckFormTest__
 
 The live link can be found here - https://pokedeckz-66be6c7e2c2c.herokuapp.com/
 
+## AI reflection
+
+- Sumarization of AI's participation:
+  - Contribution to user story/unit testing
+  - Assistance in bug fixing
+  - Optimization of workflow
+
+- Reflection:
+ In this project, AI has played a big role as an assistant to my work.  The project has always been and always will be lead by my own creativity and design.  However, AI has been great help in optimaizing and speeding up the process of finishing the project.
+
+ AI has done the most in helping me identify and resolving bugs.  When I encounter bugs, the first thing to do is do a quick look in the code myself to try and identify the problems, which works well for most of the simple bugs cause by easy-to-spot errors.  However, as a Heroku app involves back-end models and front-end elements, with the addition of me being new to heroku, it is quite difficult to identify multi-layed problems invloving models and views.  This is where I have used AI to speed up the process of bug fixing, where co-pilot can give suggestions on where the problems would potentially come from, so I can more accurately and quicky locate the source of the bugs and fix the problems accordingly.  That said, even co-pilot can get stuck in the identification of issues and lead me in circles which ends up cositng me more time.  This taught me the importance of the limitations of AI in big fixing, and the importance of having sufficient understanding in the language to be a effective programmer.
+
+ Secondly, AI has greatly reduced the amount of mundane and repetitive work needed to be done in the project.  As per mentioned earlier in the readme, AI has been used in process of both creating the user stories, and setting the basis for the unit tests.  These are examples of some set work that has to be done everytime, but is not something that is uniqe to a project and is a very repetitive process that takes up the time for more constructive work.  This is where AI is great in freeing up the time for me to create a better experince for the user by spending more time working on the interactive deck building.  I also recognise that AI cannot complete these task alone on itself, however, it is much quicker to let AI build up the basic foundation by presenting it with precise prompts, then alterating the generated results to fit the final product.
+
+ In conclusion, I have benifited greatly from AI in this project increasing my productivity, and I have learned to improve my own understanding and proficiency of the languages I'm using to effectively combine human creativity and machine efficiency to create the best end product.
 
 ## Credits 
 
